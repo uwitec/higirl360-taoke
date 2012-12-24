@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HiGirl360_TaoKeModelStoreContainer" CdmEntityContainer="TaoKeEntities">
+    <EntitySetMapping Name="Member">
+      <EntityTypeMapping TypeName="HiGirl360_TaoKeModel.Member">
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserNickName" ColumnName="UserNickName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="TaoKeID" ColumnName="TaoKeID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="UserPic" ColumnName="UserPic" />
+          <ScalarProperty Name="UserDesc" ColumnName="UserDesc" />
+          <ScalarProperty Name="LastMonthMoney" ColumnName="LastMonthMoney" />
+          <ScalarProperty Name="RecommendUserID" ColumnName="RecommendUserID" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="User_Status" ColumnName="User_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAOKECATEGORY">
+      <EntityTypeMapping TypeName="HiGirl360_TaoKeModel.TAOKECATEGORY">
+        <MappingFragment StoreEntitySet="TAOKECATEGORY">
+          <ScalarProperty Name="CateID" ColumnName="CateID" />
+          <ScalarProperty Name="CateName" ColumnName="CateName" />
+          <ScalarProperty Name="CateDesc" ColumnName="CateDesc" />
+          <ScalarProperty Name="ParentCateID" ColumnName="ParentCateID" />
+          <ScalarProperty Name="CateChannelID" ColumnName="CateChannelID" />
+          <ScalarProperty Name="CateClickCount" ColumnName="CateClickCount" />
+          <ScalarProperty Name="CateSort" ColumnName="CateSort" />
+          <ScalarProperty Name="CateStatus" ColumnName="CateStatus" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAOKECHANNEL">
+      <EntityTypeMapping TypeName="HiGirl360_TaoKeModel.TAOKECHANNEL">
+        <MappingFragment StoreEntitySet="TAOKECHANNEL">
+          <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="ChannelDesc" ColumnName="ChannelDesc" />
+          <ScalarProperty Name="ParentCateID" ColumnName="ParentCateID" />
+          <ScalarProperty Name="ChannelSort" ColumnName="ChannelSort" />
+          <ScalarProperty Name="ChannelStatus" ColumnName="ChannelStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAOKEPRODUCT">
+      <EntityTypeMapping TypeName="HiGirl360_TaoKeModel.TAOKEPRODUCT">
+        <MappingFragment StoreEntitySet="TAOKEPRODUCT">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductTitle" ColumnName="ProductTitle" />
+          <ScalarProperty Name="ProductPic" ColumnName="ProductPic" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductCouponPrice" ColumnName="ProductCouponPrice" />
+          <ScalarProperty Name="CommissionRate" ColumnName="CommissionRate" />
+          <ScalarProperty Name="ProductUrl" ColumnName="ProductUrl" />
+          <ScalarProperty Name="ShopName" ColumnName="ShopName" />
+          <ScalarProperty Name="ShopLevel" ColumnName="ShopLevel" />
+          <ScalarProperty Name="ShopUrl" ColumnName="ShopUrl" />
+          <ScalarProperty Name="ProductStatus" ColumnName="ProductStatus" />
+          <ScalarProperty Name="CateCode" ColumnName="CateCode" />
+          <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UserReCommendDesc" ColumnName="UserReCommendDesc" />
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+          <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserFavorites">
+      <EntityTypeMapping TypeName="HiGirl360_TaoKeModel.UserFavorites">
+        <MappingFragment StoreEntitySet="UserFavorites">
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductTitle" ColumnName="ProductTitle" />
+          <ScalarProperty Name="ProductDesc" ColumnName="ProductDesc" />
+          <ScalarProperty Name="ProductShop" ColumnName="ProductShop" />
+          <ScalarProperty Name="ProductCateID" ColumnName="ProductCateID" />
+          <ScalarProperty Name="ProdcutPrice" ColumnName="ProdcutPrice" />
+          <ScalarProperty Name="ProductNowPrice" ColumnName="ProductNowPrice" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProductComment">
+      <EntityTypeMapping TypeName="HiGirl360_TaoKeModel.UserProductComment">
+        <MappingFragment StoreEntitySet="UserProductComment">
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="CommentTitle" ColumnName="CommentTitle" />
+          <ScalarProperty Name="CommentBody" ColumnName="CommentBody" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

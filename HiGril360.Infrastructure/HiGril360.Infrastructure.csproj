@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{237700C2-4A74-4907-803B-03A60208F127}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HiGril360.Infrastructure</RootNamespace>
+    <AssemblyName>HiGril360.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Extensions\ConvertibleExtensions.cs" />
+    <Compile Include="Extensions\Collections\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\Collections\IEnumableExtensions.cs" />
+    <Compile Include="Extensions\Data\DataTableExtensions.cs" />
+    <Compile Include="Extensions\Data\IDataReaderExtensions.cs" />
+    <Compile Include="Extensions\IO\FileSystems\Folder.cs" />
+    <Compile Include="Extensions\IO\FileSystems\FolderRoot.cs" />
+    <Compile Include="Extensions\IO\FileSystems\IFile.cs" />
+    <Compile Include="Extensions\IO\FileSystems\IFolder.cs" />
+    <Compile Include="Extensions\IO\FileSystems\IFolderRoot.cs" />
+    <Compile Include="Extensions\IO\FileWatcher\FileMonitor.cs" />
+    <Compile Include="Extensions\IO\FileWatcher\FileMonitorManager.cs" />
+    <Compile Include="Extensions\IO\FileWatcher\FileWatcherTimer.cs" />
+    <Compile Include="Extensions\IO\FileWatcher\IFileMonitor.cs" />
+    <Compile Include="Extensions\IO\FileWatcher\IFileMonitorManager.cs" />
+    <Compile Include="Extensions\IO\PathUtility.cs" />
+    <Compile Include="Extensions\Text\FormatExtensions.cs" />
+    <Compile Include="Extensions\Text\IsExtensions.cs" />
+    <Compile Include="Extensions\Text\StringExtensions.cs" />
+    <Compile Include="LazyField.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Range.cs" />
+    <Compile Include="Utility.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

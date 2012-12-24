@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HiGirl360_TaoKeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="HiGirl360_TaoKeModelStoreContainer">
+          <EntitySet Name="Member" EntityType="HiGirl360_TaoKeModel.Store.Member" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TAOKECATEGORY" EntityType="HiGirl360_TaoKeModel.Store.TAOKECATEGORY" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TAOKECHANNEL" EntityType="HiGirl360_TaoKeModel.Store.TAOKECHANNEL" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TAOKEPRODUCT" EntityType="HiGirl360_TaoKeModel.Store.TAOKEPRODUCT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserFavorites" EntityType="HiGirl360_TaoKeModel.Store.UserFavorites" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserProductComment" EntityType="HiGirl360_TaoKeModel.Store.UserProductComment" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_TAOKE_CATEGORY_ChannelID" Association="HiGirl360_TaoKeModel.Store.FK_TAOKE_CATEGORY_ChannelID">
+            <End Role="TAOKECHANNEL" EntitySet="TAOKECHANNEL" />
+            <End Role="TAOKECATEGORY" EntitySet="TAOKECATEGORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAOKE_CHANNEL_CateID" Association="HiGirl360_TaoKeModel.Store.FK_TAOKE_CHANNEL_CateID">
+            <End Role="TAOKECATEGORY" EntitySet="TAOKECATEGORY" />
+            <End Role="TAOKECHANNEL" EntitySet="TAOKECHANNEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAOKE_PRODUCT_CreateID" Association="HiGirl360_TaoKeModel.Store.FK_TAOKE_PRODUCT_CreateID">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="TAOKEPRODUCT" EntitySet="TAOKEPRODUCT" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="UserNickName" Type="varchar" MaxLength="50" />
+          <Property Name="UserPassword" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TaoKeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="20" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="18" />
+          <Property Name="UserPic" Type="varchar" MaxLength="100" />
+          <Property Name="UserDesc" Type="nvarchar" MaxLength="200" />
+          <Property Name="LastMonthMoney" Type="money" />
+          <Property Name="RecommendUserID" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="LastLoginDate" Type="datetime" />
+          <Property Name="User_Status" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="TAOKECATEGORY">
+          <Key>
+            <PropertyRef Name="CateID" />
+          </Key>
+          <Property Name="CateID" Type="int" Nullable="false" />
+          <Property Name="CateName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CateDesc" Type="nvarchar" MaxLength="255" />
+          <Property Name="ParentCateID" Type="int" Nullable="false" />
+          <Property Name="CateChannelID" Type="int" />
+          <Property Name="CateClickCount" Type="int" Nullable="false" />
+          <Property Name="CateSort" Type="int" Nullable="false" />
+          <Property Name="CateStatus" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Keywords" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TAOKECHANNEL">
+          <Key>
+            <PropertyRef Name="ChannelID" />
+          </Key>
+          <Property Name="ChannelID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ChannelName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ChannelDesc" Type="varchar" MaxLength="100" />
+          <Property Name="ParentCateID" Type="int" />
+          <Property Name="ChannelSort" Type="int" Nullable="false" />
+          <Property Name="ChannelStatus" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="TAOKEPRODUCT">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProductTitle" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ProductPic" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="ProductPrice" Type="money" Nullable="false" />
+          <Property Name="ProductCouponPrice" Type="money" />
+          <Property Name="CommissionRate" Type="smallint" />
+          <Property Name="ProductUrl" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="ShopName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ShopLevel" Type="smallint" Nullable="false" />
+          <Property Name="ShopUrl" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="ProductStatus" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="CateCode" Type="int" Nullable="false" />
+          <Property Name="CreateUserID" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="UserReCommendDesc" Type="nvarchar" MaxLength="200" />
+          <Property Name="LastUpdateUser" Type="varchar" MaxLength="50" />
+          <Property Name="LastUpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserFavorites">
+          <Key>
+            <PropertyRef Name="MemberID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProductTitle" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ProductDesc" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="ProductShop" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="ProductCateID" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProdcutPrice" Type="money" Nullable="false" />
+          <Property Name="ProductNowPrice" Type="money" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserProductComment">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CommentTitle" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CommentBody" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <Association Name="FK_TAOKE_CATEGORY_ChannelID">
+          <End Role="TAOKECHANNEL" Type="HiGirl360_TaoKeModel.Store.TAOKECHANNEL" Multiplicity="0..1" />
+          <End Role="TAOKECATEGORY" Type="HiGirl360_TaoKeModel.Store.TAOKECATEGORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAOKECHANNEL">
+              <PropertyRef Name="ChannelID" />
+            </Principal>
+            <Dependent Role="TAOKECATEGORY">
+              <PropertyRef Name="CateChannelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TAOKE_CHANNEL_CateID">
+          <End Role="TAOKECATEGORY" Type="HiGirl360_TaoKeModel.Store.TAOKECATEGORY" Multiplicity="0..1" />
+          <End Role="TAOKECHANNEL" Type="HiGirl360_TaoKeModel.Store.TAOKECHANNEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAOKECATEGORY">
+              <PropertyRef Name="CateID" />
+            </Principal>
+            <Dependent Role="TAOKECHANNEL">
+              <PropertyRef Name="ParentCateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TAOKE_PRODUCT_CreateID">
+          <End Role="Member" Type="HiGirl360_TaoKeModel.Store.Member" Multiplicity="1" />
+          <End Role="TAOKEPRODUCT" Type="HiGirl360_TaoKeModel.Store.TAOKEPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="TAOKEPRODUCT">
+              <PropertyRef Name="CreateUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HiGirl360_TaoKeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="TaoKeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Member" EntityType="HiGirl360_TaoKeModel.Member" />
+          <EntitySet Name="TAOKECATEGORY" EntityType="HiGirl360_TaoKeModel.TAOKECATEGORY" />
+          <EntitySet Name="TAOKECHANNEL" EntityType="HiGirl360_TaoKeModel.TAOKECHANNEL" />
+          <EntitySet Name="TAOKEPRODUCT" EntityType="HiGirl360_TaoKeModel.TAOKEPRODUCT" />
+          <EntitySet Name="UserFavorites" EntityType="HiGirl360_TaoKeModel.UserFavorites" />
+          <EntitySet Name="UserProductComment" EntityType="HiGirl360_TaoKeModel.UserProductComment" />
+          <AssociationSet Name="FK_TAOKE_PRODUCT_CreateID" Association="HiGirl360_TaoKeModel.FK_TAOKE_PRODUCT_CreateID">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="TAOKEPRODUCT" EntitySet="TAOKEPRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAOKE_CATEGORY_ChannelID" Association="HiGirl360_TaoKeModel.FK_TAOKE_CATEGORY_ChannelID">
+            <End Role="TAOKECHANNEL" EntitySet="TAOKECHANNEL" />
+            <End Role="TAOKECATEGORY" EntitySet="TAOKECATEGORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAOKE_CHANNEL_CateID" Association="HiGirl360_TaoKeModel.FK_TAOKE_CHANNEL_CateID">
+            <End Role="TAOKECATEGORY" EntitySet="TAOKECATEGORY" />
+            <End Role="TAOKECHANNEL" EntitySet="TAOKECHANNEL" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UserNickName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TaoKeID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="18" Unicode="false" FixedLength="false" />
+          <Property Name="UserPic" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="UserDesc" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="LastMonthMoney" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="RecommendUserID" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" />
+          <Property Name="LastLoginDate" Type="DateTime" />
+          <Property Name="User_Status" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="TAOKEPRODUCT" Relationship="HiGirl360_TaoKeModel.FK_TAOKE_PRODUCT_CreateID" FromRole="Member" ToRole="TAOKEPRODUCT" />
+        </EntityType>
+        <EntityType Name="TAOKECATEGORY">
+          <Key>
+            <PropertyRef Name="CateID" />
+          </Key>
+          <Property Name="CateID" Type="Int32" Nullable="false" />
+          <Property Name="CateName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CateDesc" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ParentCateID" Type="Int32" Nullable="false" />
+          <Property Name="CateChannelID" Type="Int32" />
+          <Property Name="CateClickCount" Type="Int32" Nullable="false" />
+          <Property Name="CateSort" Type="Int32" Nullable="false" />
+          <Property Name="CateStatus" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="Keywords" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="TAOKECHANNEL" Relationship="HiGirl360_TaoKeModel.FK_TAOKE_CATEGORY_ChannelID" FromRole="TAOKECATEGORY" ToRole="TAOKECHANNEL" />
+          <NavigationProperty Name="TAOKECHANNEL1" Relationship="HiGirl360_TaoKeModel.FK_TAOKE_CHANNEL_CateID" FromRole="TAOKECATEGORY" ToRole="TAOKECHANNEL" />
+        </EntityType>
+        <EntityType Name="TAOKECHANNEL">
+          <Key>
+            <PropertyRef Name="ChannelID" />
+          </Key>
+          <Property Name="ChannelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChannelName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ChannelDesc" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ParentCateID" Type="Int32" />
+          <Property Name="ChannelSort" Type="Int32" Nullable="false" />
+          <Property Name="ChannelStatus" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="TAOKECATEGORY" Relationship="HiGirl360_TaoKeModel.FK_TAOKE_CATEGORY_ChannelID" FromRole="TAOKECHANNEL" ToRole="TAOKECATEGORY" />
+          <NavigationProperty Name="TAOKECATEGORY1" Relationship="HiGirl360_TaoKeModel.FK_TAOKE_CHANNEL_CateID" FromRole="TAOKECHANNEL" ToRole="TAOKECATEGORY" />
+        </EntityType>
+        <EntityType Name="TAOKEPRODUCT">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ProductTitle" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ProductPic" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ProductPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ProductCouponPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CommissionRate" Type="Int16" />
+          <Property Name="ProductUrl" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ShopName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ShopLevel" Type="Int16" Nullable="false" />
+          <Property Name="ShopUrl" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ProductStatus" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="CateCode" Type="Int32" Nullable="false" />
+          <Property Name="CreateUserID" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UserReCommendDesc" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LastUpdateTime" Type="DateTime" />
+          <NavigationProperty Name="Member" Relationship="HiGirl360_TaoKeModel.FK_TAOKE_PRODUCT_CreateID" FromRole="TAOKEPRODUCT" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="UserFavorites">
+          <Key>
+            <PropertyRef Name="MemberID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ProductTitle" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ProductDesc" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="ProductShop" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ProductCateID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ProdcutPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ProductNowPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="LastUpdateTime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="UserProductComment">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CommentTitle" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CommentBody" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <Association Name="FK_TAOKE_PRODUCT_CreateID">
+          <End Role="Member" Type="HiGirl360_TaoKeModel.Member" Multiplicity="1" />
+          <End Role="TAOKEPRODUCT" Type="HiGirl360_TaoKeModel.TAOKEPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="TAOKEPRODUCT">
+              <PropertyRef Name="CreateUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TAOKE_CATEGORY_ChannelID">
+          <End Role="TAOKECHANNEL" Type="HiGirl360_TaoKeModel.TAOKECHANNEL" Multiplicity="0..1" />
+          <End Role="TAOKECATEGORY" Type="HiGirl360_TaoKeModel.TAOKECATEGORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAOKECHANNEL">
+              <PropertyRef Name="ChannelID" />
+            </Principal>
+            <Dependent Role="TAOKECATEGORY">
+              <PropertyRef Name="CateChannelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TAOKE_CHANNEL_CateID">
+          <End Role="TAOKECATEGORY" Type="HiGirl360_TaoKeModel.TAOKECATEGORY" Multiplicity="0..1" />
+          <End Role="TAOKECHANNEL" Type="HiGirl360_TaoKeModel.TAOKECHANNEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAOKECATEGORY">
+              <PropertyRef Name="CateID" />
+            </Principal>
+            <Dependent Role="TAOKECHANNEL">
+              <PropertyRef Name="ParentCateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HiGirl360_TaoKeModelStoreContainer" CdmEntityContainer="TaoKeEntities">
+          <EntitySetMapping Name="Member"><EntityTypeMapping TypeName="HiGirl360_TaoKeModel.Member"><MappingFragment StoreEntitySet="Member">
+            <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="UserNickName" ColumnName="UserNickName" />
+            <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+            <ScalarProperty Name="TaoKeID" ColumnName="TaoKeID" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+            <ScalarProperty Name="UserPic" ColumnName="UserPic" />
+            <ScalarProperty Name="UserDesc" ColumnName="UserDesc" />
+            <ScalarProperty Name="LastMonthMoney" ColumnName="LastMonthMoney" />
+            <ScalarProperty Name="RecommendUserID" ColumnName="RecommendUserID" />
+            <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+            <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+            <ScalarProperty Name="User_Status" ColumnName="User_Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TAOKECATEGORY"><EntityTypeMapping TypeName="HiGirl360_TaoKeModel.TAOKECATEGORY"><MappingFragment StoreEntitySet="TAOKECATEGORY">
+            <ScalarProperty Name="CateID" ColumnName="CateID" />
+            <ScalarProperty Name="CateName" ColumnName="CateName" />
+            <ScalarProperty Name="CateDesc" ColumnName="CateDesc" />
+            <ScalarProperty Name="ParentCateID" ColumnName="ParentCateID" />
+            <ScalarProperty Name="CateChannelID" ColumnName="CateChannelID" />
+            <ScalarProperty Name="CateClickCount" ColumnName="CateClickCount" />
+            <ScalarProperty Name="CateSort" ColumnName="CateSort" />
+            <ScalarProperty Name="CateStatus" ColumnName="CateStatus" />
+            <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TAOKECHANNEL"><EntityTypeMapping TypeName="HiGirl360_TaoKeModel.TAOKECHANNEL"><MappingFragment StoreEntitySet="TAOKECHANNEL">
+            <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+            <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+            <ScalarProperty Name="ChannelDesc" ColumnName="ChannelDesc" />
+            <ScalarProperty Name="ParentCateID" ColumnName="ParentCateID" />
+            <ScalarProperty Name="ChannelSort" ColumnName="ChannelSort" />
+            <ScalarProperty Name="ChannelStatus" ColumnName="ChannelStatus" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TAOKEPRODUCT"><EntityTypeMapping TypeName="HiGirl360_TaoKeModel.TAOKEPRODUCT"><MappingFragment StoreEntitySet="TAOKEPRODUCT">
+            <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+            <ScalarProperty Name="ProductTitle" ColumnName="ProductTitle" />
+            <ScalarProperty Name="ProductPic" ColumnName="ProductPic" />
+            <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+            <ScalarProperty Name="ProductCouponPrice" ColumnName="ProductCouponPrice" />
+            <ScalarProperty Name="CommissionRate" ColumnName="CommissionRate" />
+            <ScalarProperty Name="ProductUrl" ColumnName="ProductUrl" />
+            <ScalarProperty Name="ShopName" ColumnName="ShopName" />
+            <ScalarProperty Name="ShopLevel" ColumnName="ShopLevel" />
+            <ScalarProperty Name="ShopUrl" ColumnName="ShopUrl" />
+            <ScalarProperty Name="ProductStatus" ColumnName="ProductStatus" />
+            <ScalarProperty Name="CateCode" ColumnName="CateCode" />
+            <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+            <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+            <ScalarProperty Name="UserReCommendDesc" ColumnName="UserReCommendDesc" />
+            <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+            <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UserFavorites"><EntityTypeMapping TypeName="HiGirl360_TaoKeModel.UserFavorites"><MappingFragment StoreEntitySet="UserFavorites">
+            <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+            <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+            <ScalarProperty Name="ProductTitle" ColumnName="ProductTitle" />
+            <ScalarProperty Name="ProductDesc" ColumnName="ProductDesc" />
+            <ScalarProperty Name="ProductShop" ColumnName="ProductShop" />
+            <ScalarProperty Name="ProductCateID" ColumnName="ProductCateID" />
+            <ScalarProperty Name="ProdcutPrice" ColumnName="ProdcutPrice" />
+            <ScalarProperty Name="ProductNowPrice" ColumnName="ProductNowPrice" />
+            <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+            <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UserProductComment"><EntityTypeMapping TypeName="HiGirl360_TaoKeModel.UserProductComment"><MappingFragment StoreEntitySet="UserProductComment">
+            <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+            <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+            <ScalarProperty Name="CommentTitle" ColumnName="CommentTitle" />
+            <ScalarProperty Name="CommentBody" ColumnName="CommentBody" />
+            <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="TaoKe">
+        <EntityTypeShape EntityType="HiGirl360_TaoKeModel.Member" Width="1.5" PointX="2.75" PointY="5.375" Height="3.8802294921874987" IsExpanded="true" />
+        <EntityTypeShape EntityType="HiGirl360_TaoKeModel.TAOKECATEGORY" Width="1.5" PointX="0.75" PointY="1" Height="3.3071704101562496" IsExpanded="true" />
+        <EntityTypeShape EntityType="HiGirl360_TaoKeModel.TAOKECHANNEL" Width="1.5" PointX="3" PointY="1.375" Height="2.5430916341145835" IsExpanded="true" />
+        <EntityTypeShape EntityType="HiGirl360_TaoKeModel.TAOKEPRODUCT" Width="1.5" PointX="5" PointY="5" Height="4.4532885742187505" IsExpanded="true" />
+        <EntityTypeShape EntityType="HiGirl360_TaoKeModel.UserFavorites" Width="1.5" PointX="5.75" PointY="0.75" Height="2.9251310221354156" IsExpanded="true" />
+        <EntityTypeShape EntityType="HiGirl360_TaoKeModel.UserProductComment" Width="1.5" PointX="7.75" PointY="0.75" Height="2.1610522460937496" IsExpanded="true" />
+        <AssociationConnector Association="HiGirl360_TaoKeModel.FK_TAOKE_PRODUCT_CreateID" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.25" PointY="7.31511474609375" />
+          <ConnectorPoint PointX="5" PointY="7.31511474609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="HiGirl360_TaoKeModel.FK_TAOKE_CATEGORY_ChannelID" ManuallyRouted="false">
+          <ConnectorPoint PointX="3" PointY="2.6465458170572917" />
+          <ConnectorPoint PointX="2.25" PointY="2.6465458170572917" />
+        </AssociationConnector>
+        <AssociationConnector Association="HiGirl360_TaoKeModel.FK_TAOKE_CHANNEL_CateID" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.9482729085286459" />
+          <ConnectorPoint PointX="3" PointY="1.9482729085286459" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

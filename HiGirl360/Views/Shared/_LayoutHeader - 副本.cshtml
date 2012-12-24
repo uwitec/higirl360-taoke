@@ -1,0 +1,133 @@
+﻿@model IEnumerable<HiGirl360.Models.ViewModel.Menu>
+<script type="text/javascript">
+    $(function () {
+        $("#nav>li:first a").removeClass().addClass("nav_on");
+        $("#menu_con>div:gt(0)").hide();
+    });
+    function qiehuan(num) {
+        for (var id = 0; id <= 9; id++) {
+            if (id == num) {
+                $("#qh_con" + id).show();
+                $("#mynav" + id).addClass("nav_on");
+            }
+            else {
+                $("#qh_con" + id).hide();
+                $("#mynav" + id).removeClass();
+            }
+        }
+    }
+    function btnSearch_Click() {
+        var keyword = $("#kw").val();
+        var type = $("ish").val();
+        window.open("/Search/?keyword=" + escape(keyword) + "&type=" + type, 'searchwindow', '');
+        return false;
+    }
+</script>
+
+<div class="top">
+    <div class="top960">
+
+        <span class="header_left">
+            <a href="#"><em class="orange">返利帮助</em></a>
+            <span id="header_fqsq">|</span>
+            <span ><a onclick="SetHome(this,'http://www.HiGirl360.com/');" href="javascript:;">设为首页</a></span>
+            <span id="header_fqsq">|</span>
+            <span ><a onclick="AddFavorite('http://www.HiGirl360.com/', '嗨购网_购物返利');" href="javascript:;">收藏本站</a></span>
+            <span id="header_fqsq">|</span>
+            <a href="#">时尚风格馆</a>
+            <span id="header_fqsq">|</span>
+            <a href="#">皇冠主题馆</a>
+        </span>
+        
+
+        @if(Request.IsAuthenticated) {
+            <text>欢迎 <strong>@User.Identity.Name</strong>!
+            [ @Html.ActionLink("退出", "LogOff", "Member") ]</text>
+            <!--登录后的 我和账户昵称，账户余额， 订单管理， 账户明细，我要推广-->
+        }
+        else {
+            <div id="divLogin" class="topright">
+            <div class="toprightA">
+                欢迎来到嗨购网！
+                <a href="Member/LogOn" style="color: #f00">请登录</a>
+                <span id="header_fqsq">|</span>
+                <a href="Member/Register" style="color: #f00">免费注册</a> 
+                或使用：
+            </div>
+            <div class="reg-tips">
+                恭喜, 嗨购网注册即送<em class="orange">5</em>元红包, 
+                <a hidefocus="true" href="Member/Register" rel="nofollow"><em class="orange">立即领取</em></a>
+                <span class="arrows"></span>
+            </div>
+
+            <div class="loginWays">
+                <a href="#"><img src="@Url.Content("~/Content/Images/QQ_Connect_logo_3.png")" /></a>
+                <a href="#"><img src="@Url.Content("~/Content/Images/SinaWeibo_loginbtn_03.png")" /></a>
+            </div>
+            
+            </div>
+        }
+
+        
+    </div>
+</div>
+    
+<div id="banner" style="width:960px; margin:0 auto;" >
+<table style="width:100%">
+<tr>
+<td><img src="@Url.Content("~/Content/Images/logo.png")"/></td>
+<td>
+<div id="seach" style="float:right;">
+        <div class="slt">
+            <input type="hidden" value="" id="ish" name="ish">
+            <a id="ish_1" class="on" onclick="SearchSelect(1,'');">宝贝</a>
+            <a id="ish_2" onclick="SearchSelect(2,'shop');">店铺</a>
+            <a id="ish_3" onclick="SearchSelect(3,'nick');">卖家</a>
+        </div>
+        <input onblur="if(!this.value){this.className='';};" id="kw" onfocus="this.className='on';" name="kw" autocomplete="off">
+        <input type="button" value="搜 索" id="btnSearch" class="btnSearch" onclick="return btnSearch_Click()"/>
+    </div>
+</td>
+</tr>
+</table>
+
+
+        
+        
+</div>
+
+
+<div id="menu_out">
+    <div id="menu_in">
+        <div id="menu">
+            <ul id="nav">
+                @{
+                    int i = 0;
+                    foreach (var item in Model)
+                    {
+                    <li><a class="nav_off" id="mynav@{@i}" onmouseover="javascript:qiehuan(@{@i})" href="#">
+                        <span>@item.CateName</span></a></li><li class="menu_line"></li>                        
+                        i++;
+                    }
+                }
+            </ul>
+            <div id="menu_con">
+                @{
+                    int j = 0;
+                    foreach (var _item in Model)
+                    {
+                    <div id="qh_con@{@j}" style="display: block">
+                        <ul>
+                            @foreach (var subItem in _item.SubMenu)
+                            {
+                                <li><a href="#"><span>@subItem.CateName</span></a></li><li class="menu_line2"></li>               
+                            }
+                        </ul>
+                    </div>
+                            j++;
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

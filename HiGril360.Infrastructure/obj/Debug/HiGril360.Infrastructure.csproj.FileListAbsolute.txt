@@ -1,0 +1,9 @@
+E:\MyDocument\Code\MyCode\Taobao\HiGirl360\HiGirl360\HiGril360.Infrastructure\obj\Debug\ResolveAssemblyReference.cache
+E:\MyDocument\Code\MyCode\Taobao\HiGirl360\HiGirl360\HiGril360.Infrastructure\bin\Debug\HiGril360.Infrastructure.dll
+E:\MyDocument\Code\MyCode\Taobao\HiGirl360\HiGirl360\HiGril360.Infrastructure\bin\Debug\HiGril360.Infrastructure.pdb
+E:\MyDocument\Code\MyCode\Taobao\HiGirl360\HiGirl360\HiGril360.Infrastructure\obj\Debug\HiGril360.Infrastructure.dll
+E:\MyDocument\Code\MyCode\Taobao\HiGirl360\HiGirl360\HiGril360.Infrastructure\obj\Debug\HiGril360.Infrastructure.pdb
+E:\Code\MyCode\HiGirl360\HiGirl360\HiGril360.Infrastructure\bin\Debug\HiGril360.Infrastructure.dll
+E:\Code\MyCode\HiGirl360\HiGirl360\HiGril360.Infrastructure\bin\Debug\HiGril360.Infrastructure.pdb
+E:\Code\MyCode\HiGirl360\HiGirl360\HiGril360.Infrastructure\obj\Debug\HiGril360.Infrastructure.dll
+E:\Code\MyCode\HiGirl360\HiGirl360\HiGril360.Infrastructure\obj\Debug\HiGril360.Infrastructure.pdb

@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* CSS Document */
+ul,li{
+	padding:0;
+	margin:0;
+}
+
+
+/*======= 图片展示 ======*/
+.mainpic ul li{
+		list-style:none;
+		float:left;
+	}
+	.pic_zoom{
+		width:350px;
+		height:409px;
+		position:relative;
+		float:left;
+		margin:0 10px 10px 0;
+	}	
+	.thumb{
+		margin-top:5px;
+		height:54px;
+		width:350px;
+	}
+	.left_btn,.right_btn{
+		width:10px;
+		height:58px;
+		cursor:pointer;
+	}
+	.right_btn,.left_btn img{
+		margin-top:7px;
+	}
+	.th_pics{
+		width:320px;
+		height:58px;
+		margin:1px 5px;
+		overflow:hidden;
+		white-space:nowrap;
+	}
+	.th_pics img{
+		width:50px;
+		height:50px;
+		border:2px #CCCCCC solid;
+		padding:2px;
+		margin:0 3px 1px 3px;
+		/*    50+2*2+2*2+3*2=64     */
+		/*     64*5=320      */
+	}
+	.th_pics a:hover img{
+		width:50px;
+		height:50px;
+		border:2px #ca0400 solid;
+		padding:2px;
+		margin:0 3px 1px 3px;
+	}
+	.mainpic{
+		zoom:1;
+		margin-left:0px;
+		/*  margin:64*k  */
+	}
+	.zoomdiv{
+		display:none;
+		height:400px;
+		width:400px;
+		position:absolute;
+		left:10px;
+		top:10px;
+	}
+	.big_pic{
+		width:350px;
+		height:350px;
+	}
+	.big_pic img{
+		border:0;
+	}
+	.zoomThumbActive img{
+		border:2px #ca0400 solid;
+	}
+	.fl{
+		float:left;
+	}
+	.clear{
+		clear:both;
+		line-height:0px;
+		height:0px;
+	}
