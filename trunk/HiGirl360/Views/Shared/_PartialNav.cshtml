@@ -1,0 +1,16 @@
+﻿@model IEnumerable<HiGirl360.Models.TAOKECATEGORY>
+
+<div id="mainnav"> 
+    @foreach (var item in Model)
+    {
+        @if (item.CateID == 1)
+        {
+            @Html.ActionLink(item.CateName, "index", "Home");
+        }
+        else
+        {
+            @Html.ActionLink(item.CateName, "index", "Category", new { CateID = item.CateID }, null); 
+        }
+    }
+</div>
+

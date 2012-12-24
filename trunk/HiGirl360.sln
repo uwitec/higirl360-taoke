@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiGirl360", "HiGirl360\HiGirl360.csproj", "{135586EE-C1BC-4ED7-8B19-CD59BB52ED7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopSdk", "..\TopSDK\TopSdk.csproj", "{9C11CAE5-5188-4E71-825B-68FC3135728A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiGril360.Infrastructure", "HiGril360.Infrastructure\HiGril360.Infrastructure.csproj", "{237700C2-4A74-4907-803B-03A60208F127}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HiGirl360.Lib", "HiGirl360.Lib", "{6B2CB7BE-BF28-4A38-AACA-6AD2C5A27AA2}"
+	ProjectSection(SolutionItems) = preProject
+		HiGirl360.Lib\log4net.dll = HiGirl360.Lib\log4net.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QConnectSDK", "..\QConnectSDK\QConnectSDK.csproj", "{DDF84840-7A36-425D-A0A0-ED63DABB78EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDimension.Weibo40", "..\NetDimension.Weibo\NetDimension.Weibo40.csproj", "{7B795714-40D6-4B2E-A277-CBE13C33E1ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{135586EE-C1BC-4ED7-8B19-CD59BB52ED7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{135586EE-C1BC-4ED7-8B19-CD59BB52ED7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{135586EE-C1BC-4ED7-8B19-CD59BB52ED7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{135586EE-C1BC-4ED7-8B19-CD59BB52ED7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{237700C2-4A74-4907-803B-03A60208F127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{237700C2-4A74-4907-803B-03A60208F127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{237700C2-4A74-4907-803B-03A60208F127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{237700C2-4A74-4907-803B-03A60208F127}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDF84840-7A36-425D-A0A0-ED63DABB78EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF84840-7A36-425D-A0A0-ED63DABB78EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF84840-7A36-425D-A0A0-ED63DABB78EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF84840-7A36-425D-A0A0-ED63DABB78EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B795714-40D6-4B2E-A277-CBE13C33E1ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B795714-40D6-4B2E-A277-CBE13C33E1ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B795714-40D6-4B2E-A277-CBE13C33E1ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B795714-40D6-4B2E-A277-CBE13C33E1ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
