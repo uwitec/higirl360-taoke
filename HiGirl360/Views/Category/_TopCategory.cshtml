@@ -1,0 +1,62 @@
+﻿@model IEnumerable<HiGirl360.Models.ViewModel.Category>
+           
+<div id="col-sub">
+    <div style="z-index: 15;" class="category">
+        <h2 class="hdBox">
+            <a href="@Url.Action("index", "Category")" target="_blank"><strong class="hd">热门分类</strong></a>
+        </h2>
+        <div class="entity">
+            <ul class="items">
+            @{
+                int i=0;
+                foreach (var item in Model)
+	            {
+                    i = 0;
+                    <li>
+                        <h3>@item.CateName</h3>
+                        @foreach (var subItem in item.SubCategory)
+                        {
+                            if (i == 0 || i % 5 == 0)
+                            {
+                                @:<p class='item-col'>
+                            }
+                            <a href="Category/@subItem.CateID"  target="_blank">@subItem.CateName </a>
+                            if (i >= 5 && i % 5 == 0)
+                            {
+                                @:</p>
+                            }
+                            i++;
+                        }
+                    </li>
+                }
+            }
+                @*
+
+                @{
+                    int i=0;
+                    string s = string.Empty;
+                     foreach (var item in Model)
+	                 {
+                         i = 0;
+                         s += "<li><h3>" + item.CateName + "</h3>";
+                         foreach (var subItem in item.SubCategory)
+                         {
+                             if (i==0 || i % 5 == 0)
+                             {
+                                 s += "<p class='item-col'>";
+                             }
+                             s += "<a href='Category/" + @subItem.CateID + "' target='_blank'>" + @subItem.CateName + "</a>";
+                             if (i > 0 && i % 5 == 0)
+                             {
+                                 s += "</p>";
+                             }
+                             i++;
+                         }
+                         s += "</li>";
+                     }
+                    }
+                    @Html.Raw(s)    *@
+            </ul>
+        </div>
+    </div>
+</div>
