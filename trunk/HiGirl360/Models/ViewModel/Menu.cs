@@ -7,10 +7,10 @@ namespace HiGirl360.Models.ViewModel
 {
     public class Menu
     {
-        public int CateID { get; set; }
-        public string CateName { get; set; }
+        public int MenuID { get; set; }
+        public string MenuName { get; set; }
+        public string MenuUrl { get; set; }
 
-        //private List<SubMenu> _subMenu;
         public List<SubMenu> SubMenu { get; set; }
     }
 }

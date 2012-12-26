@@ -19,7 +19,6 @@ using System.Runtime.Serialization;
 #region EDM 关系源元数据
 
 [assembly: EdmRelationshipAttribute("HiGirl360_TaoKeModel", "FK_TAOKE_PRODUCT_CreateID", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HiGirl360.Models.Member), "TAOKEPRODUCT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HiGirl360.Models.TAOKEPRODUCT), true)]
-[assembly: EdmRelationshipAttribute("HiGirl360_TaoKeModel", "FK_TAOKE_CATEGORY_ChannelID", "TAOKECHANNEL", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HiGirl360.Models.TAOKECHANNEL), "TAOKECATEGORY", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HiGirl360.Models.TAOKECATEGORY), true)]
 [assembly: EdmRelationshipAttribute("HiGirl360_TaoKeModel", "FK_TAOKE_CHANNEL_CateID", "TAOKECATEGORY", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HiGirl360.Models.TAOKECATEGORY), "TAOKECHANNEL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HiGirl360.Models.TAOKECHANNEL), true)]
 
 #endregion
@@ -91,38 +90,6 @@ namespace HiGirl360.Models
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        public ObjectSet<TAOKECATEGORY> TAOKECATEGORY
-        {
-            get
-            {
-                if ((_TAOKECATEGORY == null))
-                {
-                    _TAOKECATEGORY = base.CreateObjectSet<TAOKECATEGORY>("TAOKECATEGORY");
-                }
-                return _TAOKECATEGORY;
-            }
-        }
-        private ObjectSet<TAOKECATEGORY> _TAOKECATEGORY;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        public ObjectSet<TAOKECHANNEL> TAOKECHANNEL
-        {
-            get
-            {
-                if ((_TAOKECHANNEL == null))
-                {
-                    _TAOKECHANNEL = base.CreateObjectSet<TAOKECHANNEL>("TAOKECHANNEL");
-                }
-                return _TAOKECHANNEL;
-            }
-        }
-        private ObjectSet<TAOKECHANNEL> _TAOKECHANNEL;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
         public ObjectSet<TAOKEPRODUCT> TAOKEPRODUCT
         {
             get
@@ -167,6 +134,118 @@ namespace HiGirl360.Models
             }
         }
         private ObjectSet<UserProductComment> _UserProductComment;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<TAOKEMENU> TAOKEMENU
+        {
+            get
+            {
+                if ((_TAOKEMENU == null))
+                {
+                    _TAOKEMENU = base.CreateObjectSet<TAOKEMENU>("TAOKEMENU");
+                }
+                return _TAOKEMENU;
+            }
+        }
+        private ObjectSet<TAOKEMENU> _TAOKEMENU;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<TAOKESTYLE> TAOKESTYLE
+        {
+            get
+            {
+                if ((_TAOKESTYLE == null))
+                {
+                    _TAOKESTYLE = base.CreateObjectSet<TAOKESTYLE>("TAOKESTYLE");
+                }
+                return _TAOKESTYLE;
+            }
+        }
+        private ObjectSet<TAOKESTYLE> _TAOKESTYLE;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<TAOKESTYLEDETAIL> TAOKESTYLEDETAIL
+        {
+            get
+            {
+                if ((_TAOKESTYLEDETAIL == null))
+                {
+                    _TAOKESTYLEDETAIL = base.CreateObjectSet<TAOKESTYLEDETAIL>("TAOKESTYLEDETAIL");
+                }
+                return _TAOKESTYLEDETAIL;
+            }
+        }
+        private ObjectSet<TAOKESTYLEDETAIL> _TAOKESTYLEDETAIL;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<TAOKECATEGROUP> TAOKECATEGROUP
+        {
+            get
+            {
+                if ((_TAOKECATEGROUP == null))
+                {
+                    _TAOKECATEGROUP = base.CreateObjectSet<TAOKECATEGROUP>("TAOKECATEGROUP");
+                }
+                return _TAOKECATEGROUP;
+            }
+        }
+        private ObjectSet<TAOKECATEGROUP> _TAOKECATEGROUP;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<TAOKEAD> TAOKEAD
+        {
+            get
+            {
+                if ((_TAOKEAD == null))
+                {
+                    _TAOKEAD = base.CreateObjectSet<TAOKEAD>("TAOKEAD");
+                }
+                return _TAOKEAD;
+            }
+        }
+        private ObjectSet<TAOKEAD> _TAOKEAD;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<TAOKECATEGORY> TAOKECATEGORY
+        {
+            get
+            {
+                if ((_TAOKECATEGORY == null))
+                {
+                    _TAOKECATEGORY = base.CreateObjectSet<TAOKECATEGORY>("TAOKECATEGORY");
+                }
+                return _TAOKECATEGORY;
+            }
+        }
+        private ObjectSet<TAOKECATEGORY> _TAOKECATEGORY;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<TAOKECHANNEL> TAOKECHANNEL
+        {
+            get
+            {
+                if ((_TAOKECHANNEL == null))
+                {
+                    _TAOKECHANNEL = base.CreateObjectSet<TAOKECHANNEL>("TAOKECHANNEL");
+                }
+                return _TAOKECHANNEL;
+            }
+        }
+        private ObjectSet<TAOKECHANNEL> _TAOKECHANNEL;
 
         #endregion
         #region AddTo 方法
@@ -177,22 +256,6 @@ namespace HiGirl360.Models
         public void AddToMember(Member member)
         {
             base.AddObject("Member", member);
-        }
-    
-        /// <summary>
-        /// 用于向 TAOKECATEGORY EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddToTAOKECATEGORY(TAOKECATEGORY tAOKECATEGORY)
-        {
-            base.AddObject("TAOKECATEGORY", tAOKECATEGORY);
-        }
-    
-        /// <summary>
-        /// 用于向 TAOKECHANNEL EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddToTAOKECHANNEL(TAOKECHANNEL tAOKECHANNEL)
-        {
-            base.AddObject("TAOKECHANNEL", tAOKECHANNEL);
         }
     
         /// <summary>
@@ -217,6 +280,62 @@ namespace HiGirl360.Models
         public void AddToUserProductComment(UserProductComment userProductComment)
         {
             base.AddObject("UserProductComment", userProductComment);
+        }
+    
+        /// <summary>
+        /// 用于向 TAOKEMENU EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToTAOKEMENU(TAOKEMENU tAOKEMENU)
+        {
+            base.AddObject("TAOKEMENU", tAOKEMENU);
+        }
+    
+        /// <summary>
+        /// 用于向 TAOKESTYLE EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToTAOKESTYLE(TAOKESTYLE tAOKESTYLE)
+        {
+            base.AddObject("TAOKESTYLE", tAOKESTYLE);
+        }
+    
+        /// <summary>
+        /// 用于向 TAOKESTYLEDETAIL EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToTAOKESTYLEDETAIL(TAOKESTYLEDETAIL tAOKESTYLEDETAIL)
+        {
+            base.AddObject("TAOKESTYLEDETAIL", tAOKESTYLEDETAIL);
+        }
+    
+        /// <summary>
+        /// 用于向 TAOKECATEGROUP EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToTAOKECATEGROUP(TAOKECATEGROUP tAOKECATEGROUP)
+        {
+            base.AddObject("TAOKECATEGROUP", tAOKECATEGROUP);
+        }
+    
+        /// <summary>
+        /// 用于向 TAOKEAD EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToTAOKEAD(TAOKEAD tAOKEAD)
+        {
+            base.AddObject("TAOKEAD", tAOKEAD);
+        }
+    
+        /// <summary>
+        /// 用于向 TAOKECATEGORY EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToTAOKECATEGORY(TAOKECATEGORY tAOKECATEGORY)
+        {
+            base.AddObject("TAOKECATEGORY", tAOKECATEGORY);
+        }
+    
+        /// <summary>
+        /// 用于向 TAOKECHANNEL EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToTAOKECHANNEL(TAOKECHANNEL tAOKECHANNEL)
+        {
+            base.AddObject("TAOKECHANNEL", tAOKECHANNEL);
         }
 
         #endregion
@@ -628,6 +747,243 @@ namespace HiGirl360.Models
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HiGirl360_TaoKeModel", Name="TAOKEAD")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TAOKEAD : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 TAOKEAD 对象。
+        /// </summary>
+        /// <param name="adID">AdID 属性的初始值。</param>
+        /// <param name="aDTitle">ADTitle 属性的初始值。</param>
+        /// <param name="adImg">AdImg 属性的初始值。</param>
+        /// <param name="adUrl">AdUrl 属性的初始值。</param>
+        /// <param name="adSort">AdSort 属性的初始值。</param>
+        /// <param name="adStartTime">AdStartTime 属性的初始值。</param>
+        /// <param name="adEndTime">AdEndTime 属性的初始值。</param>
+        /// <param name="adStatus">AdStatus 属性的初始值。</param>
+        public static TAOKEAD CreateTAOKEAD(global::System.Int32 adID, global::System.String aDTitle, global::System.String adImg, global::System.String adUrl, global::System.Int16 adSort, global::System.DateTime adStartTime, global::System.DateTime adEndTime, global::System.String adStatus)
+        {
+            TAOKEAD tAOKEAD = new TAOKEAD();
+            tAOKEAD.AdID = adID;
+            tAOKEAD.ADTitle = aDTitle;
+            tAOKEAD.AdImg = adImg;
+            tAOKEAD.AdUrl = adUrl;
+            tAOKEAD.AdSort = adSort;
+            tAOKEAD.AdStartTime = adStartTime;
+            tAOKEAD.AdEndTime = adEndTime;
+            tAOKEAD.AdStatus = adStatus;
+            return tAOKEAD;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 AdID
+        {
+            get
+            {
+                return _AdID;
+            }
+            set
+            {
+                if (_AdID != value)
+                {
+                    OnAdIDChanging(value);
+                    ReportPropertyChanging("AdID");
+                    _AdID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("AdID");
+                    OnAdIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _AdID;
+        partial void OnAdIDChanging(global::System.Int32 value);
+        partial void OnAdIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ADTitle
+        {
+            get
+            {
+                return _ADTitle;
+            }
+            set
+            {
+                OnADTitleChanging(value);
+                ReportPropertyChanging("ADTitle");
+                _ADTitle = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ADTitle");
+                OnADTitleChanged();
+            }
+        }
+        private global::System.String _ADTitle;
+        partial void OnADTitleChanging(global::System.String value);
+        partial void OnADTitleChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String AdImg
+        {
+            get
+            {
+                return _AdImg;
+            }
+            set
+            {
+                OnAdImgChanging(value);
+                ReportPropertyChanging("AdImg");
+                _AdImg = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("AdImg");
+                OnAdImgChanged();
+            }
+        }
+        private global::System.String _AdImg;
+        partial void OnAdImgChanging(global::System.String value);
+        partial void OnAdImgChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String AdUrl
+        {
+            get
+            {
+                return _AdUrl;
+            }
+            set
+            {
+                OnAdUrlChanging(value);
+                ReportPropertyChanging("AdUrl");
+                _AdUrl = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("AdUrl");
+                OnAdUrlChanged();
+            }
+        }
+        private global::System.String _AdUrl;
+        partial void OnAdUrlChanging(global::System.String value);
+        partial void OnAdUrlChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 AdSort
+        {
+            get
+            {
+                return _AdSort;
+            }
+            set
+            {
+                OnAdSortChanging(value);
+                ReportPropertyChanging("AdSort");
+                _AdSort = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AdSort");
+                OnAdSortChanged();
+            }
+        }
+        private global::System.Int16 _AdSort;
+        partial void OnAdSortChanging(global::System.Int16 value);
+        partial void OnAdSortChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime AdStartTime
+        {
+            get
+            {
+                return _AdStartTime;
+            }
+            set
+            {
+                OnAdStartTimeChanging(value);
+                ReportPropertyChanging("AdStartTime");
+                _AdStartTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AdStartTime");
+                OnAdStartTimeChanged();
+            }
+        }
+        private global::System.DateTime _AdStartTime;
+        partial void OnAdStartTimeChanging(global::System.DateTime value);
+        partial void OnAdStartTimeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime AdEndTime
+        {
+            get
+            {
+                return _AdEndTime;
+            }
+            set
+            {
+                OnAdEndTimeChanging(value);
+                ReportPropertyChanging("AdEndTime");
+                _AdEndTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AdEndTime");
+                OnAdEndTimeChanged();
+            }
+        }
+        private global::System.DateTime _AdEndTime;
+        partial void OnAdEndTimeChanging(global::System.DateTime value);
+        partial void OnAdEndTimeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String AdStatus
+        {
+            get
+            {
+                return _AdStatus;
+            }
+            set
+            {
+                OnAdStatusChanging(value);
+                ReportPropertyChanging("AdStatus");
+                _AdStatus = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("AdStatus");
+                OnAdStatusChanged();
+            }
+        }
+        private global::System.String _AdStatus;
+        partial void OnAdStatusChanging(global::System.String value);
+        partial void OnAdStatusChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="HiGirl360_TaoKeModel", Name="TAOKECATEGORY")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -641,16 +997,14 @@ namespace HiGirl360.Models
         /// <param name="cateID">CateID 属性的初始值。</param>
         /// <param name="cateName">CateName 属性的初始值。</param>
         /// <param name="parentCateID">ParentCateID 属性的初始值。</param>
-        /// <param name="cateClickCount">CateClickCount 属性的初始值。</param>
         /// <param name="cateSort">CateSort 属性的初始值。</param>
         /// <param name="cateStatus">CateStatus 属性的初始值。</param>
-        public static TAOKECATEGORY CreateTAOKECATEGORY(global::System.Int32 cateID, global::System.String cateName, global::System.Int32 parentCateID, global::System.Int32 cateClickCount, global::System.Int32 cateSort, global::System.String cateStatus)
+        public static TAOKECATEGORY CreateTAOKECATEGORY(global::System.Int32 cateID, global::System.String cateName, global::System.Int32 parentCateID, global::System.Int32 cateSort, global::System.String cateStatus)
         {
             TAOKECATEGORY tAOKECATEGORY = new TAOKECATEGORY();
             tAOKECATEGORY.CateID = cateID;
             tAOKECATEGORY.CateName = cateName;
             tAOKECATEGORY.ParentCateID = parentCateID;
-            tAOKECATEGORY.CateClickCount = cateClickCount;
             tAOKECATEGORY.CateSort = cateSort;
             tAOKECATEGORY.CateStatus = cateStatus;
             return tAOKECATEGORY;
@@ -761,54 +1115,6 @@ namespace HiGirl360.Models
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> CateChannelID
-        {
-            get
-            {
-                return _CateChannelID;
-            }
-            set
-            {
-                OnCateChannelIDChanging(value);
-                ReportPropertyChanging("CateChannelID");
-                _CateChannelID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CateChannelID");
-                OnCateChannelIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _CateChannelID;
-        partial void OnCateChannelIDChanging(Nullable<global::System.Int32> value);
-        partial void OnCateChannelIDChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 CateClickCount
-        {
-            get
-            {
-                return _CateClickCount;
-            }
-            set
-            {
-                OnCateClickCountChanging(value);
-                ReportPropertyChanging("CateClickCount");
-                _CateClickCount = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CateClickCount");
-                OnCateClickCountChanged();
-            }
-        }
-        private global::System.Int32 _CateClickCount;
-        partial void OnCateClickCountChanging(global::System.Int32 value);
-        partial void OnCateClickCountChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 CateSort
@@ -912,46 +1218,8 @@ namespace HiGirl360.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("HiGirl360_TaoKeModel", "FK_TAOKE_CATEGORY_ChannelID", "TAOKECHANNEL")]
-        public TAOKECHANNEL TAOKECHANNEL
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TAOKECHANNEL>("HiGirl360_TaoKeModel.FK_TAOKE_CATEGORY_ChannelID", "TAOKECHANNEL").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TAOKECHANNEL>("HiGirl360_TaoKeModel.FK_TAOKE_CATEGORY_ChannelID", "TAOKECHANNEL").Value = value;
-            }
-        }
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<TAOKECHANNEL> TAOKECHANNELReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TAOKECHANNEL>("HiGirl360_TaoKeModel.FK_TAOKE_CATEGORY_ChannelID", "TAOKECHANNEL");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TAOKECHANNEL>("HiGirl360_TaoKeModel.FK_TAOKE_CATEGORY_ChannelID", "TAOKECHANNEL", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("HiGirl360_TaoKeModel", "FK_TAOKE_CHANNEL_CateID", "TAOKECHANNEL")]
-        public EntityCollection<TAOKECHANNEL> TAOKECHANNEL1
+        public EntityCollection<TAOKECHANNEL> TAOKECHANNEL
         {
             get
             {
@@ -967,6 +1235,192 @@ namespace HiGirl360.Models
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HiGirl360_TaoKeModel", Name="TAOKECATEGROUP")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TAOKECATEGROUP : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 TAOKECATEGROUP 对象。
+        /// </summary>
+        /// <param name="cateID">CateID 属性的初始值。</param>
+        /// <param name="channelID">ChannelID 属性的初始值。</param>
+        /// <param name="gruopSort">GruopSort 属性的初始值。</param>
+        /// <param name="gruopSataus">GruopSataus 属性的初始值。</param>
+        /// <param name="createTime">CreateTime 属性的初始值。</param>
+        public static TAOKECATEGROUP CreateTAOKECATEGROUP(global::System.Int32 cateID, global::System.Int32 channelID, global::System.Int16 gruopSort, global::System.String gruopSataus, global::System.DateTime createTime)
+        {
+            TAOKECATEGROUP tAOKECATEGROUP = new TAOKECATEGROUP();
+            tAOKECATEGROUP.CateID = cateID;
+            tAOKECATEGROUP.ChannelID = channelID;
+            tAOKECATEGROUP.GruopSort = gruopSort;
+            tAOKECATEGROUP.GruopSataus = gruopSataus;
+            tAOKECATEGROUP.CreateTime = createTime;
+            return tAOKECATEGROUP;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CateID
+        {
+            get
+            {
+                return _CateID;
+            }
+            set
+            {
+                if (_CateID != value)
+                {
+                    OnCateIDChanging(value);
+                    ReportPropertyChanging("CateID");
+                    _CateID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CateID");
+                    OnCateIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _CateID;
+        partial void OnCateIDChanging(global::System.Int32 value);
+        partial void OnCateIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ChannelID
+        {
+            get
+            {
+                return _ChannelID;
+            }
+            set
+            {
+                if (_ChannelID != value)
+                {
+                    OnChannelIDChanging(value);
+                    ReportPropertyChanging("ChannelID");
+                    _ChannelID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ChannelID");
+                    OnChannelIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ChannelID;
+        partial void OnChannelIDChanging(global::System.Int32 value);
+        partial void OnChannelIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 GruopSort
+        {
+            get
+            {
+                return _GruopSort;
+            }
+            set
+            {
+                OnGruopSortChanging(value);
+                ReportPropertyChanging("GruopSort");
+                _GruopSort = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("GruopSort");
+                OnGruopSortChanged();
+            }
+        }
+        private global::System.Int16 _GruopSort;
+        partial void OnGruopSortChanging(global::System.Int16 value);
+        partial void OnGruopSortChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String GruopSataus
+        {
+            get
+            {
+                return _GruopSataus;
+            }
+            set
+            {
+                OnGruopSatausChanging(value);
+                ReportPropertyChanging("GruopSataus");
+                _GruopSataus = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("GruopSataus");
+                OnGruopSatausChanged();
+            }
+        }
+        private global::System.String _GruopSataus;
+        partial void OnGruopSatausChanging(global::System.String value);
+        partial void OnGruopSatausChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime CreateTime
+        {
+            get
+            {
+                return _CreateTime;
+            }
+            set
+            {
+                OnCreateTimeChanging(value);
+                ReportPropertyChanging("CreateTime");
+                _CreateTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreateTime");
+                OnCreateTimeChanged();
+            }
+        }
+        private global::System.DateTime _CreateTime;
+        partial void OnCreateTimeChanging(global::System.DateTime value);
+        partial void OnCreateTimeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> LastUpdateTime
+        {
+            get
+            {
+                return _LastUpdateTime;
+            }
+            set
+            {
+                OnLastUpdateTimeChanging(value);
+                ReportPropertyChanging("LastUpdateTime");
+                _LastUpdateTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastUpdateTime");
+                OnLastUpdateTimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _LastUpdateTime;
+        partial void OnLastUpdateTimeChanging(Nullable<global::System.DateTime> value);
+        partial void OnLastUpdateTimeChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
@@ -1156,30 +1610,8 @@ namespace HiGirl360.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("HiGirl360_TaoKeModel", "FK_TAOKE_CATEGORY_ChannelID", "TAOKECATEGORY")]
-        public EntityCollection<TAOKECATEGORY> TAOKECATEGORY
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TAOKECATEGORY>("HiGirl360_TaoKeModel.FK_TAOKE_CATEGORY_ChannelID", "TAOKECATEGORY");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TAOKECATEGORY>("HiGirl360_TaoKeModel.FK_TAOKE_CATEGORY_ChannelID", "TAOKECATEGORY", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("HiGirl360_TaoKeModel", "FK_TAOKE_CHANNEL_CateID", "TAOKECATEGORY")]
-        public TAOKECATEGORY TAOKECATEGORY1
+        public TAOKECATEGORY TAOKECATEGORY
         {
             get
             {
@@ -1195,7 +1627,7 @@ namespace HiGirl360.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<TAOKECATEGORY> TAOKECATEGORY1Reference
+        public EntityReference<TAOKECATEGORY> TAOKECATEGORYReference
         {
             get
             {
@@ -1211,6 +1643,283 @@ namespace HiGirl360.Models
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HiGirl360_TaoKeModel", Name="TAOKEMENU")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TAOKEMENU : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 TAOKEMENU 对象。
+        /// </summary>
+        /// <param name="menuID">MenuID 属性的初始值。</param>
+        /// <param name="menuName">MenuName 属性的初始值。</param>
+        /// <param name="parentMenuID">ParentMenuID 属性的初始值。</param>
+        /// <param name="menuSort">MenuSort 属性的初始值。</param>
+        public static TAOKEMENU CreateTAOKEMENU(global::System.Int32 menuID, global::System.String menuName, global::System.Int32 parentMenuID, global::System.Int16 menuSort)
+        {
+            TAOKEMENU tAOKEMENU = new TAOKEMENU();
+            tAOKEMENU.MenuID = menuID;
+            tAOKEMENU.MenuName = menuName;
+            tAOKEMENU.ParentMenuID = parentMenuID;
+            tAOKEMENU.MenuSort = menuSort;
+            return tAOKEMENU;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MenuID
+        {
+            get
+            {
+                return _MenuID;
+            }
+            set
+            {
+                if (_MenuID != value)
+                {
+                    OnMenuIDChanging(value);
+                    ReportPropertyChanging("MenuID");
+                    _MenuID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("MenuID");
+                    OnMenuIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _MenuID;
+        partial void OnMenuIDChanging(global::System.Int32 value);
+        partial void OnMenuIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String MenuName
+        {
+            get
+            {
+                return _MenuName;
+            }
+            set
+            {
+                OnMenuNameChanging(value);
+                ReportPropertyChanging("MenuName");
+                _MenuName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("MenuName");
+                OnMenuNameChanged();
+            }
+        }
+        private global::System.String _MenuName;
+        partial void OnMenuNameChanging(global::System.String value);
+        partial void OnMenuNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String MenuDesc
+        {
+            get
+            {
+                return _MenuDesc;
+            }
+            set
+            {
+                OnMenuDescChanging(value);
+                ReportPropertyChanging("MenuDesc");
+                _MenuDesc = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("MenuDesc");
+                OnMenuDescChanged();
+            }
+        }
+        private global::System.String _MenuDesc;
+        partial void OnMenuDescChanging(global::System.String value);
+        partial void OnMenuDescChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ParentMenuID
+        {
+            get
+            {
+                return _ParentMenuID;
+            }
+            set
+            {
+                OnParentMenuIDChanging(value);
+                ReportPropertyChanging("ParentMenuID");
+                _ParentMenuID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ParentMenuID");
+                OnParentMenuIDChanged();
+            }
+        }
+        private global::System.Int32 _ParentMenuID;
+        partial void OnParentMenuIDChanging(global::System.Int32 value);
+        partial void OnParentMenuIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String MenuUrl
+        {
+            get
+            {
+                return _MenuUrl;
+            }
+            set
+            {
+                OnMenuUrlChanging(value);
+                ReportPropertyChanging("MenuUrl");
+                _MenuUrl = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("MenuUrl");
+                OnMenuUrlChanged();
+            }
+        }
+        private global::System.String _MenuUrl;
+        partial void OnMenuUrlChanging(global::System.String value);
+        partial void OnMenuUrlChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CateID
+        {
+            get
+            {
+                return _CateID;
+            }
+            set
+            {
+                OnCateIDChanging(value);
+                ReportPropertyChanging("CateID");
+                _CateID = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CateID");
+                OnCateIDChanged();
+            }
+        }
+        private global::System.String _CateID;
+        partial void OnCateIDChanging(global::System.String value);
+        partial void OnCateIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsHot
+        {
+            get
+            {
+                return _IsHot;
+            }
+            set
+            {
+                OnIsHotChanging(value);
+                ReportPropertyChanging("IsHot");
+                _IsHot = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsHot");
+                OnIsHotChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsHot;
+        partial void OnIsHotChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsHotChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsNew
+        {
+            get
+            {
+                return _IsNew;
+            }
+            set
+            {
+                OnIsNewChanging(value);
+                ReportPropertyChanging("IsNew");
+                _IsNew = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsNew");
+                OnIsNewChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsNew;
+        partial void OnIsNewChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsNewChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 MenuSort
+        {
+            get
+            {
+                return _MenuSort;
+            }
+            set
+            {
+                OnMenuSortChanging(value);
+                ReportPropertyChanging("MenuSort");
+                _MenuSort = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MenuSort");
+                OnMenuSortChanged();
+            }
+        }
+        private global::System.Int16 _MenuSort;
+        partial void OnMenuSortChanging(global::System.Int16 value);
+        partial void OnMenuSortChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String MenuStatus
+        {
+            get
+            {
+                return _MenuStatus;
+            }
+            set
+            {
+                OnMenuStatusChanging(value);
+                ReportPropertyChanging("MenuStatus");
+                _MenuStatus = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("MenuStatus");
+                OnMenuStatusChanged();
+            }
+        }
+        private global::System.String _MenuStatus;
+        partial void OnMenuStatusChanging(global::System.String value);
+        partial void OnMenuStatusChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
@@ -1713,6 +2422,502 @@ namespace HiGirl360.Models
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HiGirl360_TaoKeModel", Name="TAOKESTYLE")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TAOKESTYLE : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 TAOKESTYLE 对象。
+        /// </summary>
+        /// <param name="styleID">StyleID 属性的初始值。</param>
+        /// <param name="styleTitle">StyleTitle 属性的初始值。</param>
+        /// <param name="styleUrl">StyleUrl 属性的初始值。</param>
+        /// <param name="isShowHomePage">IsShowHomePage 属性的初始值。</param>
+        /// <param name="styleSort">StyleSort 属性的初始值。</param>
+        /// <param name="styleStatus">StyleStatus 属性的初始值。</param>
+        public static TAOKESTYLE CreateTAOKESTYLE(global::System.Int32 styleID, global::System.String styleTitle, global::System.String styleUrl, global::System.Boolean isShowHomePage, global::System.Int16 styleSort, global::System.String styleStatus)
+        {
+            TAOKESTYLE tAOKESTYLE = new TAOKESTYLE();
+            tAOKESTYLE.StyleID = styleID;
+            tAOKESTYLE.StyleTitle = styleTitle;
+            tAOKESTYLE.StyleUrl = styleUrl;
+            tAOKESTYLE.IsShowHomePage = isShowHomePage;
+            tAOKESTYLE.StyleSort = styleSort;
+            tAOKESTYLE.StyleStatus = styleStatus;
+            return tAOKESTYLE;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 StyleID
+        {
+            get
+            {
+                return _StyleID;
+            }
+            set
+            {
+                if (_StyleID != value)
+                {
+                    OnStyleIDChanging(value);
+                    ReportPropertyChanging("StyleID");
+                    _StyleID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("StyleID");
+                    OnStyleIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _StyleID;
+        partial void OnStyleIDChanging(global::System.Int32 value);
+        partial void OnStyleIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String StyleTitle
+        {
+            get
+            {
+                return _StyleTitle;
+            }
+            set
+            {
+                OnStyleTitleChanging(value);
+                ReportPropertyChanging("StyleTitle");
+                _StyleTitle = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("StyleTitle");
+                OnStyleTitleChanged();
+            }
+        }
+        private global::System.String _StyleTitle;
+        partial void OnStyleTitleChanging(global::System.String value);
+        partial void OnStyleTitleChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String StyleDesc
+        {
+            get
+            {
+                return _StyleDesc;
+            }
+            set
+            {
+                OnStyleDescChanging(value);
+                ReportPropertyChanging("StyleDesc");
+                _StyleDesc = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("StyleDesc");
+                OnStyleDescChanged();
+            }
+        }
+        private global::System.String _StyleDesc;
+        partial void OnStyleDescChanging(global::System.String value);
+        partial void OnStyleDescChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String StyleUrl
+        {
+            get
+            {
+                return _StyleUrl;
+            }
+            set
+            {
+                OnStyleUrlChanging(value);
+                ReportPropertyChanging("StyleUrl");
+                _StyleUrl = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("StyleUrl");
+                OnStyleUrlChanged();
+            }
+        }
+        private global::System.String _StyleUrl;
+        partial void OnStyleUrlChanging(global::System.String value);
+        partial void OnStyleUrlChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String StyleImg
+        {
+            get
+            {
+                return _StyleImg;
+            }
+            set
+            {
+                OnStyleImgChanging(value);
+                ReportPropertyChanging("StyleImg");
+                _StyleImg = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("StyleImg");
+                OnStyleImgChanged();
+            }
+        }
+        private global::System.String _StyleImg;
+        partial void OnStyleImgChanging(global::System.String value);
+        partial void OnStyleImgChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsShowHomePage
+        {
+            get
+            {
+                return _IsShowHomePage;
+            }
+            set
+            {
+                OnIsShowHomePageChanging(value);
+                ReportPropertyChanging("IsShowHomePage");
+                _IsShowHomePage = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsShowHomePage");
+                OnIsShowHomePageChanged();
+            }
+        }
+        private global::System.Boolean _IsShowHomePage;
+        partial void OnIsShowHomePageChanging(global::System.Boolean value);
+        partial void OnIsShowHomePageChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 StyleSort
+        {
+            get
+            {
+                return _StyleSort;
+            }
+            set
+            {
+                OnStyleSortChanging(value);
+                ReportPropertyChanging("StyleSort");
+                _StyleSort = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StyleSort");
+                OnStyleSortChanged();
+            }
+        }
+        private global::System.Int16 _StyleSort;
+        partial void OnStyleSortChanging(global::System.Int16 value);
+        partial void OnStyleSortChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String StyleStatus
+        {
+            get
+            {
+                return _StyleStatus;
+            }
+            set
+            {
+                OnStyleStatusChanging(value);
+                ReportPropertyChanging("StyleStatus");
+                _StyleStatus = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("StyleStatus");
+                OnStyleStatusChanged();
+            }
+        }
+        private global::System.String _StyleStatus;
+        partial void OnStyleStatusChanging(global::System.String value);
+        partial void OnStyleStatusChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HiGirl360_TaoKeModel", Name="TAOKESTYLEDETAIL")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TAOKESTYLEDETAIL : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 TAOKESTYLEDETAIL 对象。
+        /// </summary>
+        /// <param name="detailID">DetailID 属性的初始值。</param>
+        /// <param name="detailTitle">DetailTitle 属性的初始值。</param>
+        /// <param name="detailDesc">DetailDesc 属性的初始值。</param>
+        /// <param name="detailImg">DetailImg 属性的初始值。</param>
+        /// <param name="detailUrl">DetailUrl 属性的初始值。</param>
+        /// <param name="styleID">StyleID 属性的初始值。</param>
+        /// <param name="userLoverNum">UserLoverNum 属性的初始值。</param>
+        /// <param name="detailSort">DetailSort 属性的初始值。</param>
+        /// <param name="detailStatus">DetailStatus 属性的初始值。</param>
+        public static TAOKESTYLEDETAIL CreateTAOKESTYLEDETAIL(global::System.Int32 detailID, global::System.String detailTitle, global::System.String detailDesc, global::System.String detailImg, global::System.String detailUrl, global::System.Int32 styleID, global::System.Int32 userLoverNum, global::System.Int16 detailSort, global::System.String detailStatus)
+        {
+            TAOKESTYLEDETAIL tAOKESTYLEDETAIL = new TAOKESTYLEDETAIL();
+            tAOKESTYLEDETAIL.DetailID = detailID;
+            tAOKESTYLEDETAIL.DetailTitle = detailTitle;
+            tAOKESTYLEDETAIL.DetailDesc = detailDesc;
+            tAOKESTYLEDETAIL.DetailImg = detailImg;
+            tAOKESTYLEDETAIL.DetailUrl = detailUrl;
+            tAOKESTYLEDETAIL.StyleID = styleID;
+            tAOKESTYLEDETAIL.UserLoverNum = userLoverNum;
+            tAOKESTYLEDETAIL.DetailSort = detailSort;
+            tAOKESTYLEDETAIL.DetailStatus = detailStatus;
+            return tAOKESTYLEDETAIL;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DetailID
+        {
+            get
+            {
+                return _DetailID;
+            }
+            set
+            {
+                if (_DetailID != value)
+                {
+                    OnDetailIDChanging(value);
+                    ReportPropertyChanging("DetailID");
+                    _DetailID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DetailID");
+                    OnDetailIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DetailID;
+        partial void OnDetailIDChanging(global::System.Int32 value);
+        partial void OnDetailIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DetailTitle
+        {
+            get
+            {
+                return _DetailTitle;
+            }
+            set
+            {
+                OnDetailTitleChanging(value);
+                ReportPropertyChanging("DetailTitle");
+                _DetailTitle = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DetailTitle");
+                OnDetailTitleChanged();
+            }
+        }
+        private global::System.String _DetailTitle;
+        partial void OnDetailTitleChanging(global::System.String value);
+        partial void OnDetailTitleChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DetailDesc
+        {
+            get
+            {
+                return _DetailDesc;
+            }
+            set
+            {
+                OnDetailDescChanging(value);
+                ReportPropertyChanging("DetailDesc");
+                _DetailDesc = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DetailDesc");
+                OnDetailDescChanged();
+            }
+        }
+        private global::System.String _DetailDesc;
+        partial void OnDetailDescChanging(global::System.String value);
+        partial void OnDetailDescChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DetailImg
+        {
+            get
+            {
+                return _DetailImg;
+            }
+            set
+            {
+                OnDetailImgChanging(value);
+                ReportPropertyChanging("DetailImg");
+                _DetailImg = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DetailImg");
+                OnDetailImgChanged();
+            }
+        }
+        private global::System.String _DetailImg;
+        partial void OnDetailImgChanging(global::System.String value);
+        partial void OnDetailImgChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DetailUrl
+        {
+            get
+            {
+                return _DetailUrl;
+            }
+            set
+            {
+                OnDetailUrlChanging(value);
+                ReportPropertyChanging("DetailUrl");
+                _DetailUrl = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DetailUrl");
+                OnDetailUrlChanged();
+            }
+        }
+        private global::System.String _DetailUrl;
+        partial void OnDetailUrlChanging(global::System.String value);
+        partial void OnDetailUrlChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 StyleID
+        {
+            get
+            {
+                return _StyleID;
+            }
+            set
+            {
+                OnStyleIDChanging(value);
+                ReportPropertyChanging("StyleID");
+                _StyleID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StyleID");
+                OnStyleIDChanged();
+            }
+        }
+        private global::System.Int32 _StyleID;
+        partial void OnStyleIDChanging(global::System.Int32 value);
+        partial void OnStyleIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 UserLoverNum
+        {
+            get
+            {
+                return _UserLoverNum;
+            }
+            set
+            {
+                OnUserLoverNumChanging(value);
+                ReportPropertyChanging("UserLoverNum");
+                _UserLoverNum = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserLoverNum");
+                OnUserLoverNumChanged();
+            }
+        }
+        private global::System.Int32 _UserLoverNum;
+        partial void OnUserLoverNumChanging(global::System.Int32 value);
+        partial void OnUserLoverNumChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 DetailSort
+        {
+            get
+            {
+                return _DetailSort;
+            }
+            set
+            {
+                OnDetailSortChanging(value);
+                ReportPropertyChanging("DetailSort");
+                _DetailSort = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DetailSort");
+                OnDetailSortChanged();
+            }
+        }
+        private global::System.Int16 _DetailSort;
+        partial void OnDetailSortChanging(global::System.Int16 value);
+        partial void OnDetailSortChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DetailStatus
+        {
+            get
+            {
+                return _DetailStatus;
+            }
+            set
+            {
+                OnDetailStatusChanging(value);
+                ReportPropertyChanging("DetailStatus");
+                _DetailStatus = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DetailStatus");
+                OnDetailStatusChanged();
+            }
+        }
+        private global::System.String _DetailStatus;
+        partial void OnDetailStatusChanging(global::System.String value);
+        partial void OnDetailStatusChanged();
+
+        #endregion
+    
     }
     
     /// <summary>

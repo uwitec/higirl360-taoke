@@ -7,6 +7,6 @@ namespace HiGirl360.Models.ViewModel
 {
     public class SubMenu : Menu
     {
-        public int ParentCateID { get; set; }
+        public int ParentMenuID { get; set; }
     }
 }

@@ -41,8 +41,8 @@
         
 
         @if(Request.IsAuthenticated) {
-            <text>欢迎 <strong>@User.Identity.Name</strong>!
-            [ @Html.ActionLink("退出", "LogOff", "Member") ]</text>
+            <span>欢迎 <strong>@User.Identity.Name</strong>!
+            [ @Html.ActionLink("退出", "LogOff", "Member") ]</span>
             <!--登录后的 我和账户昵称，账户余额， 订单管理， 账户明细，我要推广-->
         }
         else {
@@ -61,8 +61,8 @@
             </div>
 
             <div class="loginWays">
-                <a href="#"><img src="@Url.Content("~/Content/Images/QQ_Connect_logo_3.png")" /></a>
-                <a href="#"><img src="@Url.Content("~/Content/Images/SinaWeibo_loginbtn_03.png")" /></a>
+                <a href="#" onclick="window.open('@Url.Action("LogInQQ", "Member")','QQLoginWindow','')"><img src="@Url.Content("~/Content/Images/QQ_Connect_logo_3.png")" /></a>
+                @*<a href="#"><img src="@Url.Content("~/Content/Images/SinaWeibo_loginbtn_03.png")" /></a>*@
             </div>
             
             </div>
@@ -106,7 +106,7 @@
                     foreach (var item in Model)
                     {
                     <li><a class="nav_off" id="mynav@{@i}" onmouseover="javascript:qiehuan(@{@i})" href="#">
-                        <span>@item.CateName</span></a></li><li class="menu_line"></li>                        
+                        <span>@item.MenuName</span></a></li><li class="menu_line"></li>                        
                         i++;
                     }
                 }
@@ -120,7 +120,7 @@
                         <ul>
                             @foreach (var subItem in _item.SubMenu)
                             {
-                                <li><a href="#"><span>@subItem.CateName</span></a></li><li class="menu_line2"></li>               
+                                <li><a href="#"><span>@subItem.MenuName</span></a></li><li class="menu_line2"></li>               
                             }
                         </ul>
                     </div>
