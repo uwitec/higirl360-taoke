@@ -105,7 +105,7 @@
                     int i = 0;
                     foreach (var item in Model)
                     {
-                    <li><a class="nav_off" id="mynav@{@i}" onmouseover="javascript:qiehuan(@{@i})" href="#">
+                    <li><a class="nav_off" id="mynav@(i)" onmouseover="javascript:qiehuan(@(i))" href="#">
                         <span>@item.MenuName</span></a></li><li class="menu_line"></li>                        
                         i++;
                     }
@@ -116,7 +116,7 @@
                     int j = 0;
                     foreach (var _item in Model)
                     {
-                    <div id="qh_con@{@j}" style="display: block">
+                    <div id="qh_con@(j)" style="display: block">
                         <ul>
                             @foreach (var subItem in _item.SubMenu)
                             {
