@@ -25,6 +25,10 @@
             <End Role="Member" EntitySet="Member" />
             <End Role="TAOKEPRODUCT" EntitySet="TAOKEPRODUCT" />
           </AssociationSet>
+          <AssociationSet Name="FK_TAOKESTYLEDETAIL_STYLEID" Association="HiGirl360_TaoKeModel.Store.FK_TAOKESTYLEDETAIL_STYLEID">
+            <End Role="TAOKESTYLE" EntitySet="TAOKESTYLE" />
+            <End Role="TAOKESTYLEDETAIL" EntitySet="TAOKESTYLEDETAIL" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Member">
           <Key>
@@ -138,9 +142,7 @@
           <Property Name="StyleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="StyleTitle" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="StyleDesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="StyleUrl" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="StyleImg" Type="varchar" MaxLength="100" />
-          <Property Name="IsShowHomePage" Type="bit" Nullable="false" />
+          <Property Name="ParentStyleID" Type="int" Nullable="false" />
           <Property Name="StyleSort" Type="smallint" Nullable="false" />
           <Property Name="StyleStatus" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
@@ -209,6 +211,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TAOKESTYLEDETAIL_STYLEID">
+          <End Role="TAOKESTYLE" Type="HiGirl360_TaoKeModel.Store.TAOKESTYLE" Multiplicity="1" />
+          <End Role="TAOKESTYLEDETAIL" Type="HiGirl360_TaoKeModel.Store.TAOKESTYLEDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAOKESTYLE">
+              <PropertyRef Name="StyleID" />
+            </Principal>
+            <Dependent Role="TAOKESTYLEDETAIL">
+              <PropertyRef Name="StyleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -223,8 +237,6 @@
             <End Role="TAOKEPRODUCT" EntitySet="TAOKEPRODUCT" />
           </AssociationSet>
           <EntitySet Name="TAOKEMENU" EntityType="HiGirl360_TaoKeModel.TAOKEMENU" />
-          <EntitySet Name="TAOKESTYLE" EntityType="HiGirl360_TaoKeModel.TAOKESTYLE" />
-          <EntitySet Name="TAOKESTYLEDETAIL" EntityType="HiGirl360_TaoKeModel.TAOKESTYLEDETAIL" />
           <EntitySet Name="TAOKECATEGROUP" EntityType="HiGirl360_TaoKeModel.TAOKECATEGROUP" />
           <EntitySet Name="TAOKEAD" EntityType="HiGirl360_TaoKeModel.TAOKEAD" />
           <EntitySet Name="TAOKECATEGORY" EntityType="HiGirl360_TaoKeModel.TAOKECATEGORY" />
@@ -232,6 +244,12 @@
           <AssociationSet Name="FK_TAOKE_CHANNEL_CateID" Association="HiGirl360_TaoKeModel.FK_TAOKE_CHANNEL_CateID">
             <End Role="TAOKECATEGORY" EntitySet="TAOKECATEGORY" />
             <End Role="TAOKECHANNEL" EntitySet="TAOKECHANNEL" />
+          </AssociationSet>
+          <EntitySet Name="TAOKESTYLE" EntityType="HiGirl360_TaoKeModel.TAOKESTYLE" />
+          <EntitySet Name="TAOKESTYLEDETAIL" EntityType="HiGirl360_TaoKeModel.TAOKESTYLEDETAIL" />
+          <AssociationSet Name="FK_TAOKESTYLEDETAIL_STYLEID" Association="HiGirl360_TaoKeModel.FK_TAOKESTYLEDETAIL_STYLEID">
+            <End Role="TAOKESTYLE" EntitySet="TAOKESTYLE" />
+            <End Role="TAOKESTYLEDETAIL" EntitySet="TAOKESTYLEDETAIL" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Member">
@@ -331,33 +349,6 @@
           <Property Type="Int16" Name="MenuSort" Nullable="false" />
           <Property Type="String" Name="MenuStatus" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
-        <EntityType Name="TAOKESTYLE">
-          <Key>
-            <PropertyRef Name="StyleID" />
-          </Key>
-          <Property Type="Int32" Name="StyleID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="StyleTitle" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="StyleDesc" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="StyleUrl" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="StyleImg" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="IsShowHomePage" Nullable="false" />
-          <Property Type="Int16" Name="StyleSort" Nullable="false" />
-          <Property Type="String" Name="StyleStatus" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-        </EntityType>
-        <EntityType Name="TAOKESTYLEDETAIL">
-          <Key>
-            <PropertyRef Name="DetailID" />
-          </Key>
-          <Property Type="Int32" Name="DetailID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="DetailTitle" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="DetailDesc" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="DetailImg" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="DetailUrl" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="StyleID" Nullable="false" />
-          <Property Type="Int32" Name="UserLoverNum" Nullable="false" />
-          <Property Type="Int16" Name="DetailSort" Nullable="false" />
-          <Property Type="String" Name="DetailStatus" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-        </EntityType>
         <EntityType Name="TAOKECATEGROUP">
           <Key>
             <PropertyRef Name="CateID" />
@@ -418,6 +409,45 @@
             </Principal>
             <Dependent Role="TAOKECHANNEL">
               <PropertyRef Name="ParentCateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TAOKESTYLE">
+          <Key>
+            <PropertyRef Name="StyleID" />
+          </Key>
+          <Property Type="Int32" Name="StyleID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="StyleTitle" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="StyleDesc" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ParentStyleID" Nullable="false" />
+          <Property Type="Int16" Name="StyleSort" Nullable="false" />
+          <Property Type="String" Name="StyleStatus" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="TAOKESTYLEDETAIL" Relationship="HiGirl360_TaoKeModel.FK_TAOKESTYLEDETAIL_STYLEID" FromRole="TAOKESTYLE" ToRole="TAOKESTYLEDETAIL" />
+        </EntityType>
+        <EntityType Name="TAOKESTYLEDETAIL">
+          <Key>
+            <PropertyRef Name="DetailID" />
+          </Key>
+          <Property Type="Int32" Name="DetailID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DetailTitle" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DetailDesc" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailImg" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DetailUrl" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="StyleID" Nullable="false" />
+          <Property Type="Int32" Name="UserLoverNum" Nullable="false" />
+          <Property Type="Int16" Name="DetailSort" Nullable="false" />
+          <Property Type="String" Name="DetailStatus" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="TAOKESTYLE" Relationship="HiGirl360_TaoKeModel.FK_TAOKESTYLEDETAIL_STYLEID" FromRole="TAOKESTYLEDETAIL" ToRole="TAOKESTYLE" />
+        </EntityType>
+        <Association Name="FK_TAOKESTYLEDETAIL_STYLEID">
+          <End Type="HiGirl360_TaoKeModel.TAOKESTYLE" Role="TAOKESTYLE" Multiplicity="1" />
+          <End Type="HiGirl360_TaoKeModel.TAOKESTYLEDETAIL" Role="TAOKESTYLEDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAOKESTYLE">
+              <PropertyRef Name="StyleID" />
+            </Principal>
+            <Dependent Role="TAOKESTYLEDETAIL">
+              <PropertyRef Name="StyleID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -498,35 +528,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TAOKESTYLE">
-            <EntityTypeMapping TypeName="HiGirl360_TaoKeModel.TAOKESTYLE">
-              <MappingFragment StoreEntitySet="TAOKESTYLE">
-                <ScalarProperty Name="StyleStatus" ColumnName="StyleStatus" />
-                <ScalarProperty Name="StyleSort" ColumnName="StyleSort" />
-                <ScalarProperty Name="IsShowHomePage" ColumnName="IsShowHomePage" />
-                <ScalarProperty Name="StyleImg" ColumnName="StyleImg" />
-                <ScalarProperty Name="StyleUrl" ColumnName="StyleUrl" />
-                <ScalarProperty Name="StyleDesc" ColumnName="StyleDesc" />
-                <ScalarProperty Name="StyleTitle" ColumnName="StyleTitle" />
-                <ScalarProperty Name="StyleID" ColumnName="StyleID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TAOKESTYLEDETAIL">
-            <EntityTypeMapping TypeName="HiGirl360_TaoKeModel.TAOKESTYLEDETAIL">
-              <MappingFragment StoreEntitySet="TAOKESTYLEDETAIL">
-                <ScalarProperty Name="DetailStatus" ColumnName="DetailStatus" />
-                <ScalarProperty Name="DetailSort" ColumnName="DetailSort" />
-                <ScalarProperty Name="UserLoverNum" ColumnName="UserLoverNum" />
-                <ScalarProperty Name="StyleID" ColumnName="StyleID" />
-                <ScalarProperty Name="DetailUrl" ColumnName="DetailUrl" />
-                <ScalarProperty Name="DetailImg" ColumnName="DetailImg" />
-                <ScalarProperty Name="DetailDesc" ColumnName="DetailDesc" />
-                <ScalarProperty Name="DetailTitle" ColumnName="DetailTitle" />
-                <ScalarProperty Name="DetailID" ColumnName="DetailID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TAOKECATEGROUP">
             <EntityTypeMapping TypeName="HiGirl360_TaoKeModel.TAOKECATEGROUP">
               <MappingFragment StoreEntitySet="TAOKECATEGROUP">
@@ -579,6 +580,33 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TAOKESTYLE">
+            <EntityTypeMapping TypeName="HiGirl360_TaoKeModel.TAOKESTYLE">
+              <MappingFragment StoreEntitySet="TAOKESTYLE">
+                <ScalarProperty Name="StyleStatus" ColumnName="StyleStatus" />
+                <ScalarProperty Name="StyleSort" ColumnName="StyleSort" />
+                <ScalarProperty Name="ParentStyleID" ColumnName="ParentStyleID" />
+                <ScalarProperty Name="StyleDesc" ColumnName="StyleDesc" />
+                <ScalarProperty Name="StyleTitle" ColumnName="StyleTitle" />
+                <ScalarProperty Name="StyleID" ColumnName="StyleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAOKESTYLEDETAIL">
+            <EntityTypeMapping TypeName="HiGirl360_TaoKeModel.TAOKESTYLEDETAIL">
+              <MappingFragment StoreEntitySet="TAOKESTYLEDETAIL">
+                <ScalarProperty Name="DetailStatus" ColumnName="DetailStatus" />
+                <ScalarProperty Name="DetailSort" ColumnName="DetailSort" />
+                <ScalarProperty Name="UserLoverNum" ColumnName="UserLoverNum" />
+                <ScalarProperty Name="StyleID" ColumnName="StyleID" />
+                <ScalarProperty Name="DetailUrl" ColumnName="DetailUrl" />
+                <ScalarProperty Name="DetailImg" ColumnName="DetailImg" />
+                <ScalarProperty Name="DetailDesc" ColumnName="DetailDesc" />
+                <ScalarProperty Name="DetailTitle" ColumnName="DetailTitle" />
+                <ScalarProperty Name="DetailID" ColumnName="DetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -609,8 +637,6 @@
           <ConnectorPoint PointX="5" PointY="7.31511474609375" />
         </AssociationConnector>
         <EntityTypeShape EntityType="HiGirl360_TaoKeModel.TAOKEMENU" Width="1.5" PointX="7.375" PointY="4.75" Height="2.9251310221354174" />
-        <EntityTypeShape EntityType="HiGirl360_TaoKeModel.TAOKESTYLE" Width="1.5" PointX="7.375" PointY="8.75" Height="2.5430916341145817" />
-        <EntityTypeShape EntityType="HiGirl360_TaoKeModel.TAOKESTYLEDETAIL" Width="1.5" PointX="9.375" PointY="3.75" Height="2.7341113281249996" />
         <EntityTypeShape EntityType="HiGirl360_TaoKeModel.TAOKECATEGROUP" Width="1.5" PointX="9.375" PointY="7.75" Height="2.1610522460937496" />
         <EntityTypeShape EntityType="HiGirl360_TaoKeModel.TAOKEAD" Width="1.5" PointX="1.625" PointY="0.5" Height="2.5430916341145817" />
         <EntityTypeShape EntityType="HiGirl360_TaoKeModel.TAOKECATEGORY" Width="1.5" PointX="1.625" PointY="10.75" Height="2.7341113281250031" />
@@ -618,6 +644,12 @@
         <AssociationConnector Association="HiGirl360_TaoKeModel.FK_TAOKE_CHANNEL_CateID" >
           <ConnectorPoint PointX="3.125" PointY="12.051035970052084" />
           <ConnectorPoint PointX="3.875" PointY="12.051035970052084" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="HiGirl360_TaoKeModel.TAOKESTYLE" Width="1.5" PointX="9.75" PointY="2" Height="2.3520719401041745" />
+        <EntityTypeShape EntityType="HiGirl360_TaoKeModel.TAOKESTYLEDETAIL" Width="1.5" PointX="11.875" PointY="2.125" Height="2.9251310221354174" />
+        <AssociationConnector Association="HiGirl360_TaoKeModel.FK_TAOKESTYLEDETAIL_STYLEID" >
+          <ConnectorPoint PointX="11.25" PointY="3.2385359700520873" />
+          <ConnectorPoint PointX="11.875" PointY="3.2385359700520873" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

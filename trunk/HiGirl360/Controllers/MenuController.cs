@@ -9,12 +9,18 @@ namespace HiGirl360.Controllers
 {
     public class MenuController : Controller
     {
-        private MenuRepository _menuRepository;
+        private IMenuRepository _menuRepository;
 
         public MenuController()
         {
             _menuRepository = new MenuRepository();
         }
+
+        public MenuController(IMenuRepository repository)
+        {
+            _menuRepository = repository;
+        }
+
         //
         // GET: /Menu/
 

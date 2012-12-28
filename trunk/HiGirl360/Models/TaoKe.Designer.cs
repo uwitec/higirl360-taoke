@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 
 [assembly: EdmRelationshipAttribute("HiGirl360_TaoKeModel", "FK_TAOKE_PRODUCT_CreateID", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HiGirl360.Models.Member), "TAOKEPRODUCT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HiGirl360.Models.TAOKEPRODUCT), true)]
 [assembly: EdmRelationshipAttribute("HiGirl360_TaoKeModel", "FK_TAOKE_CHANNEL_CateID", "TAOKECATEGORY", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HiGirl360.Models.TAOKECATEGORY), "TAOKECHANNEL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HiGirl360.Models.TAOKECHANNEL), true)]
+[assembly: EdmRelationshipAttribute("HiGirl360_TaoKeModel", "FK_TAOKESTYLEDETAIL_STYLEID", "TAOKESTYLE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HiGirl360.Models.TAOKESTYLE), "TAOKESTYLEDETAIL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HiGirl360.Models.TAOKESTYLEDETAIL), true)]
 
 #endregion
 
@@ -154,38 +155,6 @@ namespace HiGirl360.Models
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        public ObjectSet<TAOKESTYLE> TAOKESTYLE
-        {
-            get
-            {
-                if ((_TAOKESTYLE == null))
-                {
-                    _TAOKESTYLE = base.CreateObjectSet<TAOKESTYLE>("TAOKESTYLE");
-                }
-                return _TAOKESTYLE;
-            }
-        }
-        private ObjectSet<TAOKESTYLE> _TAOKESTYLE;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        public ObjectSet<TAOKESTYLEDETAIL> TAOKESTYLEDETAIL
-        {
-            get
-            {
-                if ((_TAOKESTYLEDETAIL == null))
-                {
-                    _TAOKESTYLEDETAIL = base.CreateObjectSet<TAOKESTYLEDETAIL>("TAOKESTYLEDETAIL");
-                }
-                return _TAOKESTYLEDETAIL;
-            }
-        }
-        private ObjectSet<TAOKESTYLEDETAIL> _TAOKESTYLEDETAIL;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
         public ObjectSet<TAOKECATEGROUP> TAOKECATEGROUP
         {
             get
@@ -246,6 +215,38 @@ namespace HiGirl360.Models
             }
         }
         private ObjectSet<TAOKECHANNEL> _TAOKECHANNEL;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<TAOKESTYLE> TAOKESTYLE
+        {
+            get
+            {
+                if ((_TAOKESTYLE == null))
+                {
+                    _TAOKESTYLE = base.CreateObjectSet<TAOKESTYLE>("TAOKESTYLE");
+                }
+                return _TAOKESTYLE;
+            }
+        }
+        private ObjectSet<TAOKESTYLE> _TAOKESTYLE;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<TAOKESTYLEDETAIL> TAOKESTYLEDETAIL
+        {
+            get
+            {
+                if ((_TAOKESTYLEDETAIL == null))
+                {
+                    _TAOKESTYLEDETAIL = base.CreateObjectSet<TAOKESTYLEDETAIL>("TAOKESTYLEDETAIL");
+                }
+                return _TAOKESTYLEDETAIL;
+            }
+        }
+        private ObjectSet<TAOKESTYLEDETAIL> _TAOKESTYLEDETAIL;
 
         #endregion
         #region AddTo 方法
@@ -291,22 +292,6 @@ namespace HiGirl360.Models
         }
     
         /// <summary>
-        /// 用于向 TAOKESTYLE EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddToTAOKESTYLE(TAOKESTYLE tAOKESTYLE)
-        {
-            base.AddObject("TAOKESTYLE", tAOKESTYLE);
-        }
-    
-        /// <summary>
-        /// 用于向 TAOKESTYLEDETAIL EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddToTAOKESTYLEDETAIL(TAOKESTYLEDETAIL tAOKESTYLEDETAIL)
-        {
-            base.AddObject("TAOKESTYLEDETAIL", tAOKESTYLEDETAIL);
-        }
-    
-        /// <summary>
         /// 用于向 TAOKECATEGROUP EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
         /// </summary>
         public void AddToTAOKECATEGROUP(TAOKECATEGROUP tAOKECATEGROUP)
@@ -336,6 +321,22 @@ namespace HiGirl360.Models
         public void AddToTAOKECHANNEL(TAOKECHANNEL tAOKECHANNEL)
         {
             base.AddObject("TAOKECHANNEL", tAOKECHANNEL);
+        }
+    
+        /// <summary>
+        /// 用于向 TAOKESTYLE EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToTAOKESTYLE(TAOKESTYLE tAOKESTYLE)
+        {
+            base.AddObject("TAOKESTYLE", tAOKESTYLE);
+        }
+    
+        /// <summary>
+        /// 用于向 TAOKESTYLEDETAIL EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToTAOKESTYLEDETAIL(TAOKESTYLEDETAIL tAOKESTYLEDETAIL)
+        {
+            base.AddObject("TAOKESTYLEDETAIL", tAOKESTYLEDETAIL);
         }
 
         #endregion
@@ -2439,17 +2440,15 @@ namespace HiGirl360.Models
         /// </summary>
         /// <param name="styleID">StyleID 属性的初始值。</param>
         /// <param name="styleTitle">StyleTitle 属性的初始值。</param>
-        /// <param name="styleUrl">StyleUrl 属性的初始值。</param>
-        /// <param name="isShowHomePage">IsShowHomePage 属性的初始值。</param>
+        /// <param name="parentStyleID">ParentStyleID 属性的初始值。</param>
         /// <param name="styleSort">StyleSort 属性的初始值。</param>
         /// <param name="styleStatus">StyleStatus 属性的初始值。</param>
-        public static TAOKESTYLE CreateTAOKESTYLE(global::System.Int32 styleID, global::System.String styleTitle, global::System.String styleUrl, global::System.Boolean isShowHomePage, global::System.Int16 styleSort, global::System.String styleStatus)
+        public static TAOKESTYLE CreateTAOKESTYLE(global::System.Int32 styleID, global::System.String styleTitle, global::System.Int32 parentStyleID, global::System.Int16 styleSort, global::System.String styleStatus)
         {
             TAOKESTYLE tAOKESTYLE = new TAOKESTYLE();
             tAOKESTYLE.StyleID = styleID;
             tAOKESTYLE.StyleTitle = styleTitle;
-            tAOKESTYLE.StyleUrl = styleUrl;
-            tAOKESTYLE.IsShowHomePage = isShowHomePage;
+            tAOKESTYLE.ParentStyleID = parentStyleID;
             tAOKESTYLE.StyleSort = styleSort;
             tAOKESTYLE.StyleStatus = styleStatus;
             return tAOKESTYLE;
@@ -2538,72 +2537,24 @@ namespace HiGirl360.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String StyleUrl
+        public global::System.Int32 ParentStyleID
         {
             get
             {
-                return _StyleUrl;
+                return _ParentStyleID;
             }
             set
             {
-                OnStyleUrlChanging(value);
-                ReportPropertyChanging("StyleUrl");
-                _StyleUrl = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("StyleUrl");
-                OnStyleUrlChanged();
+                OnParentStyleIDChanging(value);
+                ReportPropertyChanging("ParentStyleID");
+                _ParentStyleID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ParentStyleID");
+                OnParentStyleIDChanged();
             }
         }
-        private global::System.String _StyleUrl;
-        partial void OnStyleUrlChanging(global::System.String value);
-        partial void OnStyleUrlChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String StyleImg
-        {
-            get
-            {
-                return _StyleImg;
-            }
-            set
-            {
-                OnStyleImgChanging(value);
-                ReportPropertyChanging("StyleImg");
-                _StyleImg = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("StyleImg");
-                OnStyleImgChanged();
-            }
-        }
-        private global::System.String _StyleImg;
-        partial void OnStyleImgChanging(global::System.String value);
-        partial void OnStyleImgChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean IsShowHomePage
-        {
-            get
-            {
-                return _IsShowHomePage;
-            }
-            set
-            {
-                OnIsShowHomePageChanging(value);
-                ReportPropertyChanging("IsShowHomePage");
-                _IsShowHomePage = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsShowHomePage");
-                OnIsShowHomePageChanged();
-            }
-        }
-        private global::System.Boolean _IsShowHomePage;
-        partial void OnIsShowHomePageChanging(global::System.Boolean value);
-        partial void OnIsShowHomePageChanged();
+        private global::System.Int32 _ParentStyleID;
+        partial void OnParentStyleIDChanging(global::System.Int32 value);
+        partial void OnParentStyleIDChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -2655,6 +2606,31 @@ namespace HiGirl360.Models
 
         #endregion
     
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HiGirl360_TaoKeModel", "FK_TAOKESTYLEDETAIL_STYLEID", "TAOKESTYLEDETAIL")]
+        public EntityCollection<TAOKESTYLEDETAIL> TAOKESTYLEDETAIL
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TAOKESTYLEDETAIL>("HiGirl360_TaoKeModel.FK_TAOKESTYLEDETAIL_STYLEID", "TAOKESTYLEDETAIL");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TAOKESTYLEDETAIL>("HiGirl360_TaoKeModel.FK_TAOKESTYLEDETAIL_STYLEID", "TAOKESTYLEDETAIL", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -2918,6 +2894,47 @@ namespace HiGirl360.Models
 
         #endregion
     
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HiGirl360_TaoKeModel", "FK_TAOKESTYLEDETAIL_STYLEID", "TAOKESTYLE")]
+        public TAOKESTYLE TAOKESTYLE
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TAOKESTYLE>("HiGirl360_TaoKeModel.FK_TAOKESTYLEDETAIL_STYLEID", "TAOKESTYLE").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TAOKESTYLE>("HiGirl360_TaoKeModel.FK_TAOKESTYLEDETAIL_STYLEID", "TAOKESTYLE").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<TAOKESTYLE> TAOKESTYLEReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TAOKESTYLE>("HiGirl360_TaoKeModel.FK_TAOKESTYLEDETAIL_STYLEID", "TAOKESTYLE");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TAOKESTYLE>("HiGirl360_TaoKeModel.FK_TAOKESTYLEDETAIL_STYLEID", "TAOKESTYLE", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>

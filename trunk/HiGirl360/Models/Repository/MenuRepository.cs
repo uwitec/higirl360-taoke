@@ -6,17 +6,10 @@ using HiGirl360.Models.ViewModel;
 
 namespace HiGirl360.Models.Repository
 {
-    public class MenuRepository
+    public class MenuRepository : RepositoryBase, IMenuRepository
     {
-        private TaoKeEntities _entities;
-
-        public MenuRepository()
-        {
-            _entities = new TaoKeEntities();
-        }
-
         //取菜单
-        public List<Menu> GetMenu()
+        public IList<Menu> GetMenu()
         {
             List<Menu> _Menu = new List<Menu>();
             //1. 取到顶级菜单

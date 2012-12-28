@@ -23,8 +23,11 @@
     
     <section id="main">
         @RenderBody()
-    </section>
-  
+    </section> 
+     
+    <div class="footer">
+        @Html.Partial("_FootPartial")
+    </div>
     @RenderSection("JS", false)
 </body>
 </html>
