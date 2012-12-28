@@ -66,16 +66,25 @@
   <ItemGroup>
     <Compile Include="Areas\Manager\Controllers\MenuManagerController.cs" />
     <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
+    <Compile Include="Controllers\ADController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\StyleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Repository\ADRepository.cs" />
     <Compile Include="Models\Repository\CategoryRepository.cs" />
+    <Compile Include="Models\Repository\IAdRepository.cs" />
+    <Compile Include="Models\Repository\ICategoryRepository.cs" />
+    <Compile Include="Models\Repository\IMenuRepository.cs" />
+    <Compile Include="Models\Repository\IStyleRepository.cs" />
     <Compile Include="Models\Repository\MenuRepository.cs" />
+    <Compile Include="Models\Repository\RepositoryBase.cs" />
+    <Compile Include="Models\Repository\StyleRepository.cs" />
     <Compile Include="Models\TaoKe.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\bg-in.png" />
+    <Content Include="Content\Images\footer_aq_zfbz.gif" />
+    <Content Include="Content\Images\footer_fw_zlbz.gif" />
+    <Content Include="Content\Images\footer_zp_zlbz.gif" />
     <Content Include="Content\Images\imgs_icons.gif" />
     <Content Include="Content\Images\imgs_top.png" />
     <Content Include="Content\Images\logo.png" />
@@ -201,6 +213,10 @@
       <Project>{237700C2-4A74-4907-803B-03A60208F127}</Project>
       <Name>HiGril360.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MvcPaging\MvcPaging.csproj">
+      <Project>{AAF30968-1118-4937-B392-E9863EA8D76D}</Project>
+      <Name>MvcPaging</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_PartialNav.cshtml" />
@@ -222,6 +238,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Category\_TopCategory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AD\_HomeAd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_FootPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Style\_HomeStyle.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

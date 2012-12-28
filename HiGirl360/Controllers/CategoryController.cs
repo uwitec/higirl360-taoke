@@ -11,11 +11,16 @@ namespace HiGirl360.Controllers
     {
         //显示所有分类列表可是部分分类
 
-        private CategoryRepository _repository;
+        private ICategoryRepository _repository;
 
         public CategoryController()
         {
             _repository = new CategoryRepository();
+        }
+
+        public CategoryController(ICategoryRepository repository)
+        {
+            _repository = repository;
         }
 
         //
